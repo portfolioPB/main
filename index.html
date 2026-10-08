@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mohamed — Founder of Plulai, helping kids build their future</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F3F6FC; --ink:#0F1A33; --muted:#51607F; --card:#FFFFFF; --line:#D9E1F2;
+  --blue:#2947F2; --sun:#FFC933; --mint:#2CC6A0; --coral:#FF6B57; --sky:#9DB1FF; --on-blue:#FFFFFF;
+  --disp:"Bricolage Grotesque","IBM Plex Sans Arabic",system-ui,sans-serif;
+  --body:"Figtree","IBM Plex Sans Arabic",system-ui,sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--bg:#0C1226;--ink:#EEF2FF;--muted:#9AA8CC;--card:#151D38;--line:#27335C;--blue:#6C84FF;--on-blue:#0C1226}
+}
+:root[data-theme="dark"]{--bg:#0C1226;--ink:#EEF2FF;--muted:#9AA8CC;--card:#151D38;--line:#27335C;--blue:#6C84FF;--on-blue:#0C1226}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.05rem;line-height:1.6}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+header{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+.logo{font-family:var(--disp);font-weight:800;font-size:1.3rem;text-decoration:none}
+.tools{display:flex;gap:8px}
+.tools button{font:inherit;font-weight:600;background:var(--card);color:var(--ink);border:2px solid var(--line);border-radius:999px;padding:6px 16px;cursor:pointer}
+.tools button:hover{border-color:var(--blue)}
+
+.hero{padding:56px 0 72px}
+.hero h1{font-family:var(--disp);font-weight:800;font-size:clamp(2.4rem,7vw,5rem);line-height:1.04;letter-spacing:-.03em;margin:0 0 24px;max-width:17ch}
+[dir="rtl"] .hero h1{letter-spacing:0;line-height:1.25;max-width:19ch}
+.hero p{max-width:60ch;color:var(--muted);font-size:1.2rem;margin:0 0 32px}
+.stack{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px}
+.blk{font-family:var(--disp);font-weight:800;font-size:1.05rem;padding:12px 20px;border-radius:14px;color:#0F1A33;box-shadow:0 6px 0 rgba(15,26,51,.22);transition:transform .18s,box-shadow .18s;cursor:default}
+.blk:hover{transform:translateY(4px);box-shadow:0 2px 0 rgba(15,26,51,.22)}
+.blk:nth-child(1){background:var(--sun)}.blk:nth-child(2){background:var(--mint)}.blk:nth-child(3){background:var(--coral)}.blk:nth-child(4){background:var(--sky)}
+.btns{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.cta{display:inline-block;background:var(--blue);color:var(--on-blue);font-weight:600;padding:14px 28px;border-radius:12px;text-decoration:none}
+.cta:hover{filter:brightness(1.1)}
+.cta.ghost{background:transparent;color:var(--ink);border:2px solid var(--line)}
+.cta.ghost:hover{border-color:var(--blue);filter:none}
+
+section{padding:56px 0;border-top:2px solid var(--line)}
+h2{font-family:var(--disp);font-weight:800;font-size:clamp(1.8rem,4vw,2.6rem);letter-spacing:-.02em;margin:0 0 12px}
+[dir="rtl"] h2{letter-spacing:0}
+.sub{color:var(--muted);max-width:62ch;margin:0 0 28px}
+
+/* Plulai */
+.plulai{background:var(--blue);color:var(--on-blue);border-radius:28px;padding:clamp(24px,5vw,48px)}
+.plulai h2{margin-bottom:10px}
+.plulai .sub{color:inherit;opacity:.92}
+.pillars{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin:28px 0}
+.pillar{background:var(--card);color:var(--ink);border-radius:20px;padding:24px}
+.pillar i{display:block;width:44px;height:8px;border-radius:99px;margin-bottom:16px}
+.pillar:nth-child(1) i{background:var(--sun)}.pillar:nth-child(2) i{background:var(--mint)}.pillar:nth-child(3) i{background:var(--coral)}
+.pillar h3{font-family:var(--disp);font-size:1.3rem;margin:0 0 6px}
+.pillar p{margin:0;color:var(--muted);font-size:1rem}
+.facts{display:flex;flex-wrap:wrap;gap:10px}
+.facts span{font-weight:600;font-size:.95rem;padding:7px 16px;border-radius:999px;background:rgba(255,255,255,.2)}
+
+/* waitlist box */
+.box{display:grid;gap:32px;grid-template-columns:1.2fr 1fr;align-items:center;background:#101C3D;color:#EEF2FF;border:2px solid #27335C;border-radius:28px;padding:clamp(24px,5vw,48px)}
+.box .chip{display:inline-block;font-weight:600;font-size:.9rem;color:#0F1A33;background:#FFC933;border-radius:999px;padding:4px 14px;margin-bottom:16px}
+.box h2{font-size:clamp(2.4rem,7vw,4rem);margin:0 0 8px}
+.box .sub{color:#B9C5E8;margin-bottom:20px}
+.box ul{list-style:none;margin:0 0 26px;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.box li{font-weight:600;font-size:.95rem;padding:7px 16px;border-radius:999px;border:2px solid #FFC933;color:#EEF2FF}
+.box li:nth-child(2){border-color:#2CC6A0}.box li:nth-child(3){border-color:#FF6B57}
+.wl{display:grid;gap:10px;grid-template-columns:1fr 1fr}
+.wl button{grid-column:1/-1}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none}
+.wcheck{grid-column:1/-1;display:flex;gap:10px;align-items:flex-start;font-size:.92rem;color:#B9C5E8;cursor:pointer}
+.wl .wcheck input{width:18px;height:18px;padding:0;margin-top:.3em;accent-color:#FFC933;flex:none}
+#ts{grid-column:1/-1}
+.wnote{margin:12px 0 0;color:#8190BC;font-size:.85rem;max-width:52ch}
+.wl input{font:inherit;width:100%;color:#EEF2FF;background:#0C1530;border:2px solid #34437A;border-radius:12px;padding:13px 16px;min-width:0}
+.wl input::placeholder{color:#8190BC}
+.wl input:focus-visible{outline:3px solid #FFC933;outline-offset:2px}
+.wl button{font:inherit;font-weight:600;color:#0F1A33;background:#FFC933;border:0;border-radius:12px;padding:13px 22px;cursor:pointer}
+.wl button:hover{filter:brightness(1.08)}
+.wmsg{min-height:1.6em;margin:12px 0 0;color:#B9C5E8;font-size:.95rem}
+.wmsg.ok{color:#2CC6A0;font-weight:600}
+.wmsg.err{color:#FF8A7A;font-weight:600}
+.wl button{display:inline-flex;align-items:center;justify-content:center;gap:10px;transition:background .2s}
+.wl button:disabled{cursor:progress}
+.wl button:disabled:hover{filter:none}
+.wl button.loading::before{content:"";width:16px;height:16px;border:3px solid rgba(15,26,51,.3);border-top-color:#0F1A33;border-radius:50%;animation:spin .8s linear infinite}
+.wl button.done{background:#2CC6A0}
+.wl.busy input,.wl.busy select{opacity:.55}
+@keyframes spin{to{transform:rotate(360deg)}}
+.box{direction:ltr}
+[dir="rtl"] .box>div:first-child{direction:rtl}
+.pic{justify-self:center;width:100%;max-width:340px}
+.pic img{display:block;width:100%;height:auto;border-radius:20px;object-fit:cover}
+.pic svg{display:block;width:100%;height:auto}
+.phone{grid-column:1/-1;display:flex;gap:10px}
+.phone input{flex:1;min-width:0;text-align:start}
+.wl select{font:inherit;color:#EEF2FF;background:#0C1530;border:2px solid #34437A;border-radius:12px;padding:13px 10px;width:46%;max-width:230px;min-width:0}
+.wl select:focus-visible{outline:3px solid #FFC933;outline-offset:2px}
+.wl select option{color:#0F1A33;background:#fff}
+@media (max-width:820px){.box{grid-template-columns:1fr}.pic{order:-1;max-width:220px;justify-self:start}.wl{grid-template-columns:1fr}.phone{flex-direction:column}.wl select{width:100%;max-width:none}}
+
+/* logos */
+.logos{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.logo-tile{display:grid;place-items:center;height:116px;padding:18px;background:var(--card);border:2px solid var(--line);border-radius:18px;font-family:var(--disp);font-weight:800;font-size:1.1rem;color:var(--muted);text-align:center;line-height:1.2}
+.logo-tile img{max-width:100%;max-height:64px;object-fit:contain}
+.proof{margin-top:20px;display:flex;align-items:center;gap:16px;background:var(--card);border:2px solid var(--line);border-inline-start:8px solid var(--sun);border-radius:18px;padding:20px 26px}
+.proof .big{font-family:var(--disp);font-weight:800;font-size:2.4rem;line-height:1}
+
+/* business tabs */
+.biz{display:grid;gap:20px;grid-template-columns:minmax(220px,300px) 1fr;align-items:stretch}
+.tablist{display:flex;flex-direction:column;gap:10px}
+.tab{--a:var(--sun);font:inherit;font-family:var(--disp);font-weight:800;font-size:1.1rem;text-align:start;background:var(--card);color:var(--ink);border:2px solid var(--line);border-radius:16px;padding:16px 18px;cursor:pointer;display:flex;align-items:center;gap:12px;transition:background .15s,transform .15s}
+.tab::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--a);flex:none}
+.tab:nth-child(2){--a:var(--mint)}.tab:nth-child(3){--a:var(--coral)}.tab:nth-child(4){--a:var(--sky)}
+.tab:hover{border-color:var(--a)}
+.tab[aria-selected="true"]{background:var(--a);border-color:var(--a);color:#0F1A33}
+.tab[aria-selected="true"]::before{background:#0F1A33}
+.panel{--a:var(--sun);background:var(--card);border:2px solid var(--line);border-top:10px solid var(--a);border-radius:22px;padding:30px}
+.panel p{margin:0 0 18px;font-size:1.12rem;max-width:56ch}
+.panel ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.panel li{padding-inline-start:30px;position:relative;color:var(--muted)}
+.panel li::before{content:"";position:absolute;inset-inline-start:0;top:.5em;width:14px;height:14px;border-radius:4px;background:var(--a)}
+.panel[hidden]{display:none}
+@media (max-width:720px){.biz{grid-template-columns:1fr}.tablist{display:grid;grid-template-columns:1fr 1fr}.tab{font-size:1rem;padding:12px 14px}}
+
+.steps{list-style:none;margin:36px 0 0;padding:0;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));counter-reset:s}
+.steps li{counter-increment:s;background:var(--card);border:2px solid var(--line);border-radius:18px;padding:22px}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--sun);color:#0F1A33;font-family:var(--disp);font-weight:800;margin-bottom:12px}
+.steps b{display:block;font-family:var(--disp);font-size:1.15rem;margin-bottom:4px}
+.steps span{color:var(--muted);font-size:.98rem}
+h3.mini{font-family:var(--disp);font-size:1.4rem;margin:44px 0 0}
+
+.about{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));align-items:start}
+.about p{margin:0 0 14px;max-width:60ch}
+.creds{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.creds li{background:var(--card);border-inline-start:6px solid var(--sun);border-radius:12px;padding:14px 18px;font-weight:600}
+.creds li:nth-child(2){border-color:var(--mint)}.creds li:nth-child(3){border-color:var(--coral)}.creds li:nth-child(4){border-color:var(--sky)}
+.creds li.hl{background:var(--sun);color:#0F1A33;border-color:#0F1A33}
+.creds small{display:block;font-weight:400;color:var(--muted)}
+.creds li.hl small{color:#0F1A33}
+
+footer{padding:56px 0 72px;border-top:2px solid var(--line)}
+footer p{color:var(--muted);margin:0 0 24px;max-width:56ch}
+.mail{display:block;font-family:var(--disp);font-weight:800;font-size:clamp(1.1rem,3.4vw,1.6rem);margin-top:18px;text-decoration:none;word-break:break-all}
+.mail:hover{color:var(--blue)}
+.socials{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.socials a{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--card);border:2px solid var(--line);color:var(--ink);transition:background .15s,color .15s,border-color .15s}
+.socials a:hover{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+.socials svg{width:22px;height:22px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.wl button.loading::before{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="logo" href="#top" data-i18n="name">Mohamed</a>
+    <div class="tools">
+      <button id="lang" type="button" aria-label="Switch language">العربية</button>
+      <button id="theme" type="button" aria-label="Toggle dark mode">◐</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <h1 data-i18n="h1">I help kids discover their dreams and build the skills to reach them.</h1>
+      <p data-i18n="lead">Founder of Plulai, where kids aged 6 to 18 across the Gulf learn to set goals, code, use AI and start their own ventures. I also help businesses win more customers.</p>
+      <div class="stack" aria-hidden="true"><span class="blk" data-i18n="b1">Dreams</span><span class="blk" data-i18n="b2">Goals</span><span class="blk" data-i18n="b3">Future skills</span><span class="blk" data-i18n="b4">Entrepreneurship</span></div>
+      <div class="btns"><a class="cta" href="#contact" data-i18n="cta">Get in touch</a><a class="cta ghost" href="#business" data-i18n="cta2">Work with me</a></div>
+    </div>
+
+    <section id="plulai">
+      <div class="plulai">
+        <h2 data-i18n="plH">Plulai: where kids get ready for their future</h2>
+        <p class="sub" data-i18n="plSub">A learning platform for kids and teens aged 6 to 18, in Arabic and English. I built it from zero and lead both the product and the company.</p>
+        <div class="pillars">
+          <div class="pillar"><i></i><h3 data-i18n="pl1h">Know their dreams</h3><p data-i18n="pl1p">Kids explore what excites them and who they want to become.</p></div>
+          <div class="pillar"><i></i><h3 data-i18n="pl2h">Reach their goals</h3><p data-i18n="pl2p">Big dreams become clear goals and small steps they can follow.</p></div>
+          <div class="pillar"><i></i><h3 data-i18n="pl3h">Learn future skills</h3><p data-i18n="pl3p">Coding, AI and entrepreneurship: the skills they will need tomorrow.</p></div>
+        </div>
+        <div class="facts"><span data-i18n="c1">Ages 6–18</span><span data-i18n="c2">Arabic + English</span><span data-i18n="c3">Made for the GCC</span></div>
+      </div>
+    </section>
+
+    <section id="box">
+      <div class="box">
+        <div>
+          <span class="chip" data-i18n="bxChip">Coming soon</span>
+          <h2 data-i18n="bxH">Tamouh</h2>
+          <p class="sub" data-i18n="bxSub">A premium box for kids, made to help them find their dream, set their goals and build the skills to reach them.</p>
+          <ul><li data-i18n="bx1">Find the dream</li><li data-i18n="bx2">Set the goal</li><li data-i18n="bx3">Build the skill</li></ul>
+          <form class="wl" id="wl" novalidate>
+            <input id="wn" type="text" autocomplete="name" enterkeyhint="next" maxlength="80" placeholder="Your name" aria-label="Your name" data-ph="wName" required>
+            <input id="we" type="email" inputmode="email" autocomplete="email" enterkeyhint="next" maxlength="120" placeholder="Your email" aria-label="Your email" data-ph="wMail" required>
+            <div class="phone">
+              <select id="wcc" aria-label="Country" data-ph="wCode"></select>
+              <input id="wp" type="tel" inputmode="tel" dir="ltr" autocomplete="tel-national" enterkeyhint="send" maxlength="20" placeholder="Phone / WhatsApp number" aria-label="Phone" data-ph="wPhone" required>
+            </div>
+            <input class="hp" id="wh" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <div id="ts"></div>
+            <button type="submit" data-i18n="wBtn">Join the waitlist</button>
+          </form>
+          <p class="wmsg" id="wmsg" role="status"></p>
+          <p class="wnote" data-i18n="wNote">By joining, you agree to be contacted about the launch. We only use your details for that.</p>
+          <p class="wnote" data-i18n="wNote">We only use your details to tell you about the launch.</p>
+          <p class="wnote" data-i18n="wNote">We only use your details to tell you about the launch.</p>
+          
+        </div>
+        <div class="pic"><img src="product.jpg" alt="Tamouh box" onerror="this.remove()" onload="this.nextElementSibling.style.display='none'"><svg viewBox="0 0 240 220" aria-hidden="true">
+          <rect x="40" y="92" width="160" height="108" rx="10" fill="#1E2F66" stroke="#FFC933" stroke-width="3"/>
+          <rect x="28" y="62" width="184" height="40" rx="10" fill="#2947F2" stroke="#FFC933" stroke-width="3"/>
+          <rect x="108" y="62" width="24" height="138" fill="#FFC933"/>
+          <ellipse cx="94" cy="46" rx="24" ry="13" transform="rotate(-18 94 46)" fill="none" stroke="#FFC933" stroke-width="5"/>
+          <ellipse cx="146" cy="46" rx="24" ry="13" transform="rotate(18 146 46)" fill="none" stroke="#FFC933" stroke-width="5"/>
+          <circle cx="120" cy="54" r="8" fill="#FFC933"/>
+          <polygon points="74,130 78,141 90,141 80,148 84,160 74,153 64,160 68,148 58,141 70,141" fill="#2CC6A0"/>
+          <polygon points="164,150 167,158 175,158 169,163 171,171 164,166 157,171 159,163 153,158 161,158" fill="#FF6B57"/>
+          <circle cx="206" cy="38" r="4" fill="#FFC933"/><circle cx="26" cy="30" r="3" fill="#9DB1FF"/><circle cx="220" cy="120" r="3" fill="#2CC6A0"/>
+        </svg></div>
+      </div>
+    </section>
+
+    <section id="work">
+      <h2 data-i18n="wkH">Clients and partners</h2>
+      <p class="sub" data-i18n="wkSub">Brands and organisations I've worked with.</p>
+      <div class="logos" id="logos">
+        <!-- Replace each tile's text with: <img src="logo.png" alt="Name"> -->
+        <div class="logo-tile">Mall of Sfax</div>
+        <div class="logo-tile">Foire Internationale de Sfax</div>
+        <div class="logo-tile">Growth Zone</div>
+      </div>
+      <div class="proof"><span class="big">100K</span><span data-i18n="gzS">Views on a video I created for Growth Zone</span></div>
+    </section>
+
+    <section id="business">
+      <h2 data-i18n="bzH">Helping businesses win more customers</h2>
+      <p class="sub" data-i18n="bzSub">My background in sales and marketing is also available to business owners. Pick a service to see what's included.</p>
+      <div class="biz">
+        <div class="tablist" role="tablist" aria-label="Services">
+          <button class="tab" role="tab" id="tab1" aria-controls="p1" aria-selected="true" data-i18n="t1">Sales systems</button>
+          <button class="tab" role="tab" id="tab2" aria-controls="p2" aria-selected="false" tabindex="-1" data-i18n="t2">Marketing and content</button>
+          <button class="tab" role="tab" id="tab3" aria-controls="p3" aria-selected="false" tabindex="-1" data-i18n="t3">Business audit</button>
+          <button class="tab" role="tab" id="tab4" aria-controls="p4" aria-selected="false" tabindex="-1" data-i18n="t4">AI integration solutions</button>
+        </div>
+        <div>
+          <div class="panel" role="tabpanel" id="p1" aria-labelledby="tab1">
+            <p data-i18n="tp1">A simple, repeatable process for answering customers, following up on leads and booking meetings, so no opportunity slips away.</p>
+            <ul><li data-i18n="t1a">Lead follow-up that doesn't depend on anyone's memory</li><li data-i18n="t1b">Clear steps from first message to closed deal</li><li data-i18n="t1c">Scripts and templates your team can reuse</li></ul>
+          </div>
+          <div class="panel" role="tabpanel" id="p2" aria-labelledby="tab2" hidden>
+            <p data-i18n="tp2">Social media, campaigns and video built around a clear message, so the right customers see your brand and remember it.</p>
+            <ul><li data-i18n="t2a">A message and content plan for your brand</li><li data-i18n="t2b">Video and social content that earns attention</li><li data-i18n="t2c">Campaigns tied to real sales goals</li></ul>
+          </div>
+          <div class="panel" role="tabpanel" id="p3" aria-labelledby="tab3" hidden>
+            <p data-i18n="tp3">I review your marketing, sales and daily operations and show you where you're losing customers and time, ranked by impact.</p>
+            <ul><li data-i18n="t3a">A clear picture of what works and what doesn't</li><li data-i18n="t3b">Quick wins you can act on this week</li><li data-i18n="t3c">A prioritised plan for what to fix first</li></ul>
+          </div>
+          <div class="panel" role="tabpanel" id="p4" aria-labelledby="tab4" hidden>
+            <p data-i18n="tp4">Practical AI tools added to the way your business already works, so routine tasks take less time and customers get faster answers.</p>
+            <ul><li data-i18n="t4a">Faster replies and follow-ups for your customers</li><li data-i18n="t4b">Less time spent on repetitive admin</li><li data-i18n="t4c">Set up around your business, with training for your team</li></ul>
+          </div>
+        </div>
+      </div>
+      <h3 class="mini" data-i18n="prH">How we work together</h3>
+      <ol class="steps">
+        <li><b data-i18n="p1">Discovery call</b><span data-i18n="p1s">We talk about your business and goals. Free, no pressure.</span></li>
+        <li><b data-i18n="p2">Audit or pilot</b><span data-i18n="p2s">A paid audit or a small trial shows what works for you.</span></li>
+        <li><b data-i18n="p3">Proposal</b><span data-i18n="p3s">A clear plan with scope, timeline and price.</span></li>
+        <li><b data-i18n="p4">Delivery</b><span data-i18n="p4s">We build it, launch it and measure the results.</span></li>
+      </ol>
+    </section>
+
+    <section id="about">
+      <h2 data-i18n="abH">About me</h2>
+      <div class="about">
+        <div>
+          <p data-i18n="ab1">I'm a self-taught founder. I'm building Plulai so every kid can find their direction early and learn the skills that will matter.</p>
+          <p data-i18n="ab2">Building a company from zero also taught me what businesses need most: customers, a clear message and a process that doesn't depend on you doing everything. So I help business owners build exactly that.</p>
+        </div>
+        <ul class="creds">
+          <li class="hl">Delta Residency<small data-i18n="dr">Selected in the top 15 out of 1,500</small></li>
+          <li>LaunchX<small>MIT</small></li>
+          <li>Y Combinator<small data-i18n="yc">Programs</small></li>
+          <li>500 Global<small data-i18n="mentor">Mentorship</small></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <h2 data-i18n="ftH">Let's talk.</h2>
+    <p data-i18n="ftP">Parents, schools, partners or business owners: tell me what you're working on and I'll reply personally.</p>
+    <a class="cta" href="mailto:zvmmed@gmail.com" data-i18n="mail">Send an email</a>
+    <a class="mail" href="mailto:zvmmed@gmail.com">zvmmed@gmail.com</a>
+    <div class="socials">
+      <!-- Replace each href with your profile URL -->
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.06c.53-1 1.83-2 3.77-2 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4z"/></svg></a>
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></a>
+      <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 3c.3 2.4 1.7 3.9 4 4.1v3.1c-1.4.1-2.7-.4-4-1.2v6.2c0 3.5-2.4 5.8-5.6 5.8-3 0-5.4-2.3-5.4-5.3 0-3.3 2.7-5.7 6-5.3v3.2c-1.5-.4-2.9.5-2.9 2 0 1.2.9 2.1 2.1 2.1 1.3 0 2.2-.9 2.2-2.4V3z"/></svg></a>
+    </div>
+  </footer>
+</div>
+
+<script>
+const T={
+ en:{name:"Mohamed",h1:"I help kids discover their dreams and build the skills to reach them.",lead:"Founder of Plulai, where kids aged 6 to 18 across the Gulf learn to set goals, code, use AI and start their own ventures. I also help businesses win more customers.",b1:"Dreams",b2:"Goals",b3:"Future skills",b4:"Entrepreneurship",cta:"Get in touch",cta2:"Work with me",plH:"Plulai: where kids get ready for their future",plSub:"A learning platform for kids and teens aged 6 to 18, in Arabic and English. I built it from zero and lead both the product and the company.",pl1h:"Know their dreams",pl1p:"Kids explore what excites them and who they want to become.",pl2h:"Reach their goals",pl2p:"Big dreams become clear goals and small steps they can follow.",pl3h:"Learn future skills",pl3p:"Coding, AI and entrepreneurship: the skills they will need tomorrow.",c1:"Ages 6–18",c2:"Arabic + English",c3:"Made for the GCC",bxChip:"Coming soon",bxH:"Tamouh",bxSub:"A premium box for kids, made to help them find their dream, set their goals and build the skills to reach them.",bx1:"Find the dream",bx2:"Set the goal",bx3:"Build the skill",wName:"Your name",wMail:"Your email",wBtn:"Join the waitlist",wOk:"Almost done: press send in the email that just opened to confirm your spot.",wErr:"Please enter a valid email address.",wPhone:"Phone / WhatsApp number",wCode:"Country",wConsent:"I agree to be contacted about the Tamouh launch.",wErrN:"Please enter your name.",wErrK:"Please tick the box to continue.",wCheck:"Please complete the security check.",wBusy:"Sending…",wSlow:"Still working, this can take a few seconds…",wJoined:"You're in ✓",wDone:"You're on the list. We'll be in touch soon.",wDup:"You're already on the list.",wRate:"Too many sign-ups right now. Please try again later.",wFail:"Something went wrong. Please try again in a minute.",wCountry:"Country",wNote:"By joining, you agree to be contacted about the launch. We only use your details for that.",wErrP:"Please enter a valid phone number.",wErrC:"Please enter your country.",wOkF:"One last step: press Submit on the page that just opened to confirm your spot.",wkH:"Clients and partners",wkSub:"Brands and organisations I've worked with.",gzS:"Views on a video I created for Growth Zone",bzH:"Helping businesses win more customers",bzSub:"My background in sales and marketing is also available to business owners. Pick a service to see what's included.",t1:"Sales systems",t2:"Marketing and content",t3:"Business audit",t4:"AI integration solutions",tp1:"A simple, repeatable process for answering customers, following up on leads and booking meetings, so no opportunity slips away.",t1a:"Lead follow-up that doesn't depend on anyone's memory",t1b:"Clear steps from first message to closed deal",t1c:"Scripts and templates your team can reuse",tp2:"Social media, campaigns and video built around a clear message, so the right customers see your brand and remember it.",t2a:"A message and content plan for your brand",t2b:"Video and social content that earns attention",t2c:"Campaigns tied to real sales goals",tp3:"I review your marketing, sales and daily operations and show you where you're losing customers and time, ranked by impact.",t3a:"A clear picture of what works and what doesn't",t3b:"Quick wins you can act on this week",t3c:"A prioritised plan for what to fix first",tp4:"Practical AI tools added to the way your business already works, so routine tasks take less time and customers get faster answers.",t4a:"Faster replies and follow-ups for your customers",t4b:"Less time spent on repetitive admin",t4c:"Set up around your business, with training for your team",prH:"How we work together",p1:"Discovery call",p1s:"We talk about your business and goals. Free, no pressure.",p2:"Audit or pilot",p2s:"A paid audit or a small trial shows what works for you.",p3:"Proposal",p3s:"A clear plan with scope, timeline and price.",p4:"Delivery",p4s:"We build it, launch it and measure the results.",abH:"About me",ab1:"I'm a self-taught founder. I'm building Plulai so every kid can find their direction early and learn the skills that will matter.",ab2:"Building a company from zero also taught me what businesses need most: customers, a clear message and a process that doesn't depend on you doing everything. So I help business owners build exactly that.",dr:"Selected in the top 15 out of 1,500",yc:"Programs",mentor:"Mentorship",ftH:"Let's talk.",ftP:"Parents, schools, partners or business owners: tell me what you're working on and I'll reply personally.",mail:"Send an email"},
+ ar:{name:"محمد",h1:"أساعد الأطفال على اكتشاف أحلامهم وبناء المهارات التي توصلهم إليها.",lead:"مؤسس Plulai، حيث يتعلم الأطفال من 6 إلى 18 سنة في الخليج وضع الأهداف والبرمجة واستخدام الذكاء الاصطناعي وإطلاق مشاريعهم. كما أساعد الشركات على كسب المزيد من العملاء.",b1:"الأحلام",b2:"الأهداف",b3:"مهارات المستقبل",b4:"ريادة الأعمال",cta:"تواصل معي",cta2:"اعمل معي",plH:"Plulai: حيث يستعد الأطفال لمستقبلهم",plSub:"منصة تعليمية للأطفال والمراهقين من 6 إلى 18 سنة، بالعربية والإنجليزية. بنيتها من الصفر وأقود المنتج والشركة معًا.",pl1h:"يعرفون أحلامهم",pl1p:"يستكشف الأطفال ما يُلهمهم ومن يريدون أن يصبحوا.",pl2h:"يحققون أهدافهم",pl2p:"تتحول الأحلام الكبيرة إلى أهداف واضحة وخطوات صغيرة يمكنهم اتباعها.",pl3h:"يتعلمون مهارات المستقبل",pl3p:"البرمجة والذكاء الاصطناعي وريادة الأعمال: المهارات التي سيحتاجونها غدًا.",c1:"من 6 إلى 18 سنة",c2:"عربي + إنجليزي",c3:"صُنعت لدول الخليج",bxChip:"قريبًا",bxH:"طموح",bxSub:"صندوق فاخر للأطفال، صُمّم ليساعدهم على اكتشاف حلمهم ووضع أهدافهم وبناء المهارات التي توصلهم إليه.",bx1:"اكتشف الحلم",bx2:"ضع الهدف",bx3:"ابنِ المهارة",wName:"اسمك",wMail:"بريدك الإلكتروني",wBtn:"انضم إلى قائمة الانتظار",wOk:"اقتربت من الانتهاء: اضغط إرسال في رسالة البريد التي فُتحت لتأكيد مكانك.",wErr:"يرجى إدخال بريد إلكتروني صحيح.",wPhone:"رقم الهاتف / واتساب",wCode:"الدولة",wConsent:"أوافق على التواصل معي بخصوص إطلاق طموح.",wErrN:"يرجى إدخال اسمك.",wErrK:"يرجى تحديد المربع للمتابعة.",wCheck:"يرجى إكمال التحقق الأمني.",wBusy:"جارٍ الإرسال…",wSlow:"ما زلنا نعمل، قد يستغرق الأمر بضع ثوانٍ…",wJoined:"تم تسجيلك ✓",wDone:"تم تسجيلك في القائمة. سنتواصل معك قريبًا.",wDup:"أنت مسجّل بالفعل في القائمة.",wRate:"عدد التسجيلات كبير الآن. يرجى المحاولة لاحقًا.",wFail:"حدث خطأ ما. يرجى المحاولة بعد دقيقة.",wCountry:"الدولة",wNote:"بانضمامك توافق على التواصل معك بخصوص الإطلاق. نستخدم بياناتك لهذا الغرض فقط.",wErrP:"يرجى إدخال رقم هاتف صحيح.",wErrC:"يرجى إدخال دولتك.",wOkF:"خطوة أخيرة: اضغط إرسال في الصفحة التي فُتحت لتأكيد مكانك.",wkH:"العملاء والشركاء",wkSub:"علامات ومؤسسات عملت معها.",gzS:"مشاهدة على فيديو صنعته لـ Growth Zone",bzH:"أساعد الشركات على كسب المزيد من العملاء",bzSub:"خبرتي في المبيعات والتسويق متاحة أيضًا لأصحاب الأعمال. اختر خدمة لترى ما تشمله.",t1:"أنظمة المبيعات",t2:"التسويق والمحتوى",t3:"تدقيق الأعمال",t4:"حلول دمج الذكاء الاصطناعي",tp1:"إجراءات بسيطة قابلة للتكرار للرد على العملاء ومتابعة العملاء المحتملين وحجز المواعيد، فلا تضيع أي فرصة.",t1a:"متابعة للعملاء المحتملين لا تعتمد على ذاكرة أحد",t1b:"خطوات واضحة من أول رسالة حتى إغلاق الصفقة",t1c:"نصوص وقوالب يعيد فريقك استخدامها",tp2:"سوشيال ميديا وحملات وفيديو مبنية على رسالة واضحة، ليراك العملاء المناسبون ويتذكروا علامتك.",t2a:"خطة للرسالة والمحتوى لعلامتك",t2b:"فيديو ومحتوى اجتماعي يجذب الانتباه",t2c:"حملات مرتبطة بأهداف مبيعات حقيقية",tp3:"أراجع تسويقك ومبيعاتك وعملياتك اليومية، وأوضح لك أين تخسر العملاء والوقت، مرتبةً حسب الأثر.",t3a:"صورة واضحة لما ينجح وما لا ينجح",t3b:"مكاسب سريعة يمكنك تنفيذها هذا الأسبوع",t3c:"خطة مرتبة بالأولويات لما يجب إصلاحه أولًا",tp4:"أدوات ذكاء اصطناعي عملية تُضاف إلى طريقة عمل شركتك الحالية، فتقل مدة المهام الروتينية ويحصل العملاء على إجابات أسرع.",t4a:"ردود ومتابعات أسرع لعملائك",t4b:"وقت أقل على الأعمال الإدارية المتكررة",t4c:"إعداد مناسب لنشاطك مع تدريب لفريقك",prH:"كيف نعمل معًا",p1:"مكالمة تعارف",p1s:"نتحدث عن نشاطك وأهدافك. مجانًا وبلا التزام.",p2:"تدقيق أو تجربة",p2s:"تدقيق مدفوع أو تجربة صغيرة توضح ما ينجح معك.",p3:"عرض",p3s:"خطة واضحة بالنطاق والمدة والسعر.",p4:"التنفيذ",p4s:"نبني ونطلق ونقيس النتائج.",abH:"نبذة عني",ab1:"أنا مؤسس عصامي. أبني Plulai ليجد كل طفل اتجاهه مبكرًا ويتعلم المهارات التي ستهمه.",ab2:"بناء شركة من الصفر علّمني أيضًا ما تحتاجه الشركات أكثر: عملاء ورسالة واضحة وإجراءات لا تعتمد على أن تفعل كل شيء بنفسك. ولهذا أساعد أصحاب الأعمال على بناء ذلك.",dr:"من بين أفضل 15 من أصل 1,500",yc:"برامج",mentor:"إرشاد",ftH:"لنتحدث.",ftP:"أولياء أمور أو مدارس أو شركاء أو أصحاب أعمال: أخبروني بما تعملون عليه وسأرد شخصيًا.",mail:"أرسل بريدًا إلكترونيًا"}
+};
+const $=s=>document.querySelector(s);
+const COUNTRIES=[['QA',974],['AE',971],['SA',966],['KW',965],['BH',973],['OM',968],['TN',216],['EG',20],['JO',962],['MA',212],['DZ',213],['LY',218],['LB',961],['IQ',964],['PS',970],['SY',963],['YE',967],['SD',249],['MR',222],['TR',90],['FR',33],['GB',44],['US',1],['CA',1],['DE',49],['ES',34],['IT',39],['NL',31],['BE',32],['CH',41],['SE',46],['PK',92],['IN',91],['AU',61]];
+function guessIso(){
+  const m={'Asia/Qatar':'QA','Asia/Dubai':'AE','Asia/Riyadh':'SA','Asia/Kuwait':'KW','Asia/Bahrain':'BH','Asia/Muscat':'OM','Africa/Tunis':'TN','Africa/Cairo':'EG','Asia/Amman':'JO','Africa/Casablanca':'MA','Africa/Algiers':'DZ','Europe/Paris':'FR','Europe/London':'GB','Europe/Berlin':'DE','Europe/Istanbul':'TR'};
+  let tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(e){}
+  return m[tz]||(tz.indexOf('America/')===0?'US':'QA');
+}
+function buildCountries(l){
+  const sel=document.getElementById('wcc'); if(!sel) return;
+  const keep=sel.value;
+  const dn=new Intl.DisplayNames([l==='ar'?'ar':'en'],{type:'region'}), en=new Intl.DisplayNames(['en'],{type:'region'});
+  sel.innerHTML='';
+  COUNTRIES.forEach(([iso,dial])=>{const o=document.createElement('option');o.value=iso;o.dataset.dial=dial;o.dataset.en=en.of(iso);o.textContent=dn.of(iso)+' (+'+dial+')';sel.appendChild(o)});
+  sel.value=keep||guessIso();
+}
+function setLang(l){
+  const d=T[l];
+  document.documentElement.lang=l; document.documentElement.dir=l==='ar'?'rtl':'ltr';
+  document.querySelectorAll('[data-i18n]').forEach(e=>{const v=d[e.dataset.i18n]; if(v!==undefined) e.textContent=v;});
+  document.querySelectorAll('[data-ph]').forEach(e=>{e.placeholder=d[e.dataset.ph];e.setAttribute('aria-label',d[e.dataset.ph])});
+  $('#wmsg').textContent='';$('#wmsg').className='wmsg';
+  buildCountries(l);
+  $('#lang').textContent=l==='ar'?'English':'العربية';
+  try{localStorage.setItem('lang',l)}catch(e){}
+}
+let cur='en';
+try{cur=localStorage.getItem('lang')||'en'}catch(e){}
+if(cur==='ar') setLang('ar'); else buildCountries('en');
+$('#lang').onclick=()=>{cur=cur==='en'?'ar':'en';setLang(cur)};
+$('#theme').onclick=()=>{
+  const r=document.documentElement;
+  const dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
+  r.dataset.theme=dark?'light':'dark';
+};
+/* ---- Waitlist -> Google Sheet --------------------------------------------
+   1) Deploy apps-script.gs as a web app (see the setup steps) and paste its URL below.
+   2) Optional but recommended: add a free Cloudflare Turnstile site key.
+   While endpoint is empty, the form falls back to a pre-filled email. */
+const CFG={endpoint:'https://script.google.com/macros/s/AKfycbwANaYjIebC83ObKFwuBOdcAGSt19skSblWZ8xnjJjMyN426Ixnw6BcXCJm7ITPQrRYhw/exec',turnstileSiteKey:''};
+let nonce='',tsId;
+const normPhone=p=>{p=p.replace(/[\s().-]/g,'');if(p.indexOf('00')===0)p='+'+p.slice(2);return p};
+async function getNonce(){
+  nonce='';
+  if(!CFG.endpoint) return;
+  try{const r=await fetch(CFG.endpoint+'?a=token',{cache:'no-store'});const j=await r.json();nonce=j.nonce||''}catch(e){}
+}
+if(CFG.endpoint) getNonce();
+if(CFG.turnstileSiteKey){
+  window.onTs=()=>{tsId=turnstile.render('#ts',{sitekey:CFG.turnstileSiteKey,theme:'dark'})};
+  const sc=document.createElement('script');
+  sc.src='https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onTs';
+  sc.async=true;document.head.appendChild(sc);
+}
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+$('#wl').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const t=T[cur], msg=$('#wmsg'), form=$('#wl'), btn=$('#wl button[type=submit]');
+  if(btn.disabled) return;
+  const say=(txt,kind)=>{msg.className='wmsg '+(kind||'');msg.textContent=txt};
+  const opt=$('#wcc').selectedOptions[0];
+  let raw=$('#wp').value.replace(/[\s().-]/g,'');
+  const phone=raw.indexOf('+')===0?raw:raw.indexOf('00')===0?'+'+raw.slice(2):'+'+opt.dataset.dial+raw.replace(/^0+/,'');
+  const v={name:$('#wn').value.trim(),email:$('#we').value.trim(),phone:phone,country:opt.dataset.en,consent:true,website:$('#wh').value};
+  if(v.name.length<2){say(t.wErrN,'err');return}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email)){say(t.wErr,'err');return}
+  if(!/^\+\d{7,15}$/.test(v.phone)){say(t.wErrP,'err');return}
+  if(!CFG.endpoint){
+    const body=encodeURIComponent('Please add me to the Tamouh waitlist.\nName: '+v.name+'\nEmail: '+v.email+'\nPhone: '+v.phone+'\nCountry: '+v.country);
+    say(t.wOk,'ok');
+    location.href='mailto:zvmmed@gmail.com?subject='+encodeURIComponent('Tamouh waitlist')+'&body='+body;
+    return;
+  }
+  let tok='';
+  if(CFG.turnstileSiteKey){
+    tok=(window.turnstile&&tsId!==undefined)?turnstile.getResponse(tsId):'';
+    if(!tok){say(t.wCheck,'err');return}
+  }
+  const setBusy=on=>{
+    form.classList.toggle('busy',on);form.setAttribute('aria-busy',on);
+    btn.classList.toggle('loading',on);btn.disabled=on;
+    btn.textContent=on?T[cur].wBusy:T[cur].wBtn;
+    [...form.elements].forEach(el=>{if(el!==btn)el.disabled=on});
+  };
+  setBusy(true);say(t.wBusy,'');
+  const slow=setTimeout(()=>say(T[cur].wSlow,''),4000);
+  let ok=false,dup=false,j={ok:false,code:'error'};
+  try{
+    for(let attempt=0;attempt<2;attempt++){
+      if(!nonce){await getNonce();await sleep(3200)}
+      const r=await fetch(CFG.endpoint,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({...v,nonce,lang:cur,ts:tok})});
+      j=await r.json();nonce='';
+      if(j.code!=='nonce')break;
+    }
+    ok=!!j.ok;dup=!!j.dup;
+  }catch(err){ok=false}
+  clearTimeout(slow);
+  setBusy(false);
+  const t2=T[cur];
+  if(ok){
+    form.reset();buildCountries(cur);
+    say(dup?t2.wDup:t2.wDone,'ok');
+    btn.textContent=t2.wJoined;btn.classList.add('done');
+    setTimeout(()=>{btn.classList.remove('done');btn.textContent=T[cur].wBtn},5000);
+  }else{
+    say(j.code==='rate'?t2.wRate:j.code==='check'?t2.wCheck:j.code==='invalid'?t2.wErr:t2.wFail,'err');
+  }
+  getNonce();
+  if(tsId!==undefined&&window.turnstile)turnstile.reset(tsId);
+});
+
+/* services tabs */
+const tabs=[...document.querySelectorAll('.tab')], panels=[...document.querySelectorAll('.panel')];
+const accents=['var(--sun)','var(--mint)','var(--coral)','var(--sky)'];
+function pick(i,focus){
+  tabs.forEach((t,j)=>{t.setAttribute('aria-selected',j===i);t.tabIndex=j===i?0:-1});
+  panels.forEach((p,j)=>{p.hidden=j!==i; p.style.setProperty('--a',accents[j])});
+  if(focus) tabs[i].focus();
+}
+tabs.forEach((t,i)=>{
+  t.addEventListener('click',()=>pick(i));
+  t.addEventListener('keydown',e=>{
+    const n=tabs.length;
+    if(['ArrowDown','ArrowRight'].includes(e.key)){e.preventDefault();pick((i+1)%n,true)}
+    if(['ArrowUp','ArrowLeft'].includes(e.key)){e.preventDefault();pick((i+n-1)%n,true)}
+  });
+});
+pick(0);
+</script>
+</body>
+</html>
