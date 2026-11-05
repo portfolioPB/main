@@ -301,6 +301,16 @@ footer .fgrid{display:grid;gap:28px;margin-top:8px}
 .mg i{position:relative;overflow:hidden}.mg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .mv video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .mv:has(video[src])::after,.mv:has(video[src]) .st,.mv:has(video[src]) .bar{display:none}
+/* ---- Header: phone fit ---- */
+header{min-width:0;max-width:100%}.logo{white-space:nowrap}.tools{flex-shrink:0;gap:6px}
+@media(max-width:620px){
+header{padding:6px 8px 6px 16px;margin-top:8px}
+.logo{font-size:1.25rem}
+.tools a{display:none}
+.tools button{min-height:40px;padding:0 14px;font-size:.88rem}
+#theme{width:40px;padding:0}
+}
+@media(min-width:621px) and (max-width:899px){.tools a{padding:0 14px;font-size:.88rem}}
 </style>
 </head>
 <body>
