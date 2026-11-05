@@ -311,11 +311,6 @@ header{padding:6px 8px 6px 16px;margin-top:8px}
 #theme{width:40px;padding:0}
 }
 @media(min-width:621px) and (max-width:899px){.tools a{padding:0 14px;font-size:.88rem}}
-
-/* Video preview: override the original gradient and play triangle */
-#make .mv.video-preview{position:relative;overflow:hidden;background:#101828;aspect-ratio:16/9;border-radius:16px}
-#make .mv.video-preview::before,#make .mv.video-preview::after{content:none!important;display:none!important}
-#make .mv.video-preview video,#make .mv.video-preview video[src]{display:block!important;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;background:#101828}
 </style>
 </head>
 <body>
@@ -332,7 +327,7 @@ header{padding:6px 8px 6px 16px;margin-top:8px}
     <p class="microl" data-i18n="micro">Free to join. No payment now. Founding members get the lowest price.</p>
     <p class="proof">Delta Residency · LaunchX · 500 Global · Y Combinator programs</p>
   </div>
-  <div class="figure"><div class="arch"><span>M</span><img id="me" src="profile.jpg" alt="Mohamed"></div><div class="studio" aria-hidden="true"><b>Your AI studio</b><div><span>Video</span><em class="ok">✓ Ready</em></div><div><span>Image</span><em class="ok">✓ Ready</em></div><div><span>Website</span><em class="live">Live</em></div></div></div>
+  <div class="figure"><div class="arch"><span>M</span><img id="me" alt="Mohamed" src="profile.jpg" onerror="this.removeAttribute('src')"></div><div class="studio" aria-hidden="true"><b>Your AI studio</b><div><span>Video</span><em class="ok">✓ Ready</em></div><div><span>Image</span><em class="ok">✓ Ready</em></div><div><span>Website</span><em class="live">Live</em></div></div></div>
 </div>
 <section id="win">
   <h2 data-i18n="winH">What you <em>win</em></h2>
@@ -341,196 +336,20 @@ header{padding:6px 8px 6px 16px;margin-top:8px}
   <div class="row"><h3 data-i18n="g3h">Automate the boring work</h3><p data-i18n="g3p">Set it once and let AI repeat it.</p></div>
   <div class="row"><h3 data-i18n="g4h">Build your first AI agent</h3><p data-i18n="g4p">A real project you can use at work.</p></div>
 </section>
-
 <section id="make">
   <h2 data-i18n="mkH">What you will <em>make</em></h2>
-
   <div class="feats">
-
-    <!-- AI VIDEOS -->
-    <div class="feat">
-      <div class="ft">
-        <h3 data-i18n="mk1h">AI videos</h3>
-        <p data-i18n="mk1p">
-          Pro videos with no camera and no editor.
-        </p>
-      </div>
-
-      <div class="mockc" aria-hidden="true">
-        <div class="mp">
-          <b>AI</b>
-          <span>A 20s ad for my coffee shop</span>
-        </div>
-
-        <div class="mv video-preview">
-          <video id="vid" src="./video.mov" autoplay muted loop playsinline preload="auto" aria-label="AI-generated coffee shop promotional video"></video>
-        </div>
-      </div>
-    </div>
-
-    <!-- AI IMAGES -->
-    <div class="feat">
-      <div class="ft">
-        <h3 data-i18n="mk2h">AI images</h3>
-        <p data-i18n="mk2p">
-          Product photos and visuals, no studio.
-        </p>
-      </div>
-
-      <div class="mockc" aria-hidden="true">
-        <div class="mp">
-          <b>AI</b>
-          <span>Product photo on a marble table</span>
-        </div>
-
-        <div class="mg">
-          <i class="t1">
-            <img alt="" loading="lazy">
-          </i>
-          <i class="t2">
-            <img alt="" loading="lazy">
-          </i>
-          <i class="t3">
-            <img alt="" loading="lazy">
-          </i>
-          <i class="t4">
-            <img alt="" loading="lazy">
-          </i>
-        </div>
-      </div>
-    </div>
-
-    <!-- WEBSITES WITH AI -->
-    <div class="feat">
-      <div class="ft">
-        <h3 data-i18n="mk3h">Websites with AI</h3>
-        <p data-i18n="mk3p">
-          A landing page built from a simple prompt.
-        </p>
-      </div>
-
-      <div class="mockc" aria-hidden="true">
-        <div class="mb">
-          <div class="bd">
-            <i></i>
-            <i></i>
-            <i></i>
-            <span>yourbrand.com</span>
-          </div>
-
-          <div class="bb">
-            <b></b>
-            <em></em>
-            <em class="s"></em>
-            <u></u>
-          </div>
-        </div>
-      </div>
-    </div>
-
+    <div class="feat"><div class="ft"><h3 data-i18n="mk1h">AI videos</h3><p data-i18n="mk1p">Pro videos with no camera and no editor.</p></div>
+      <div class="mockc" aria-hidden="true"><div class="mp"><b>AI</b><span>A 20s ad for my coffee shop</span></div><div class="mv"><video id="vid" src="video.mp4" muted loop playsinline autoplay preload="metadata" onerror="this.removeAttribute('src')"></video><span class="st">Rendering 72%</span><i class="bar"><u></u></i></div></div></div>
+    <div class="feat"><div class="ft"><h3 data-i18n="mk2h">AI images</h3><p data-i18n="mk2p">Product photos and visuals, no studio.</p></div>
+      <div class="mockc" aria-hidden="true"><div class="mp"><b>AI</b><span>Product photo on a marble table</span></div><div class="mg"><i class="t1"><img alt="" loading="lazy" src="img1.jpg" onerror="this.removeAttribute('src')"></i><i class="t2"><img alt="" loading="lazy" src="img2.jpg" onerror="this.removeAttribute('src')"></i><i class="t3"><img alt="" loading="lazy" src="img3.jpg" onerror="this.removeAttribute('src')"></i><i class="t4"><img alt="" loading="lazy" src="img4.jpg" onerror="this.removeAttribute('src')"></i></div></div></div>
+    <div class="feat"><div class="ft"><h3 data-i18n="mk3h">Websites with AI</h3><p data-i18n="mk3p">A landing page built from a simple prompt.</p></div>
+      <div class="mockc" aria-hidden="true"><div class="mb"><div class="bd"><i></i><i></i><i></i><span>yourbrand.com</span></div><div class="bb"><b></b><em></em><em class="s"></em><u></u></div></div></div></div>
   </div>
-
-  <!-- BEFORE / AFTER COMPARISON -->
-  <div class="cmp">
-
-    <div class="seg" role="tablist">
-      <button
-        type="button"
-        role="tab"
-        aria-selected="true"
-        aria-controls="make-before"
-        data-t="b"
-        data-i18n="bfH"
-      >
-        Before
-      </button>
-
-      <button
-        type="button"
-        role="tab"
-        aria-selected="false"
-        aria-controls="make-after"
-        data-t="a"
-        data-i18n="afH"
-      >
-        After
-      </button>
-    </div>
-
-    <!-- BEFORE -->
-    <div id="make-before" class="cl b" role="tabpanel">
-      <ul>
-        <li data-i18n="b1">
-          Hours on emails and posts
-        </li>
-        <li data-i18n="b2">
-          Paying others for visuals
-        </li>
-        <li data-i18n="b3">
-          No idea where to start
-        </li>
-      </ul>
-    </div>
-
-    <!-- AFTER -->
-    <div
-      id="make-after"
-      class="cl a"
-      role="tabpanel"
-      hidden
-    >
-      <ul>
-        <li data-i18n="a1">
-          Done in minutes
-        </li>
-        <li data-i18n="a2">
-          You make your own visuals
-        </li>
-        <li data-i18n="a3">
-          A clear plan and real skills
-        </li>
-      </ul>
-    </div>
-
-  </div>
+  <div class="cmp"><div class="seg" role="tablist"><button type="button" role="tab" aria-selected="true" data-t="b" data-i18n="bfH">Before</button><button type="button" role="tab" aria-selected="false" data-t="a" data-i18n="afH">After</button></div>
+    <div class="cl b" role="tabpanel"><ul><li data-i18n="b1">Hours on emails and posts</li><li data-i18n="b2">Paying others for visuals</li><li data-i18n="b3">No idea where to start</li></ul></div>
+    <div class="cl a" role="tabpanel" hidden><ul><li data-i18n="a1">Done in minutes</li><li data-i18n="a2">You make your own visuals</li><li data-i18n="a3">A clear plan and real skills</li></ul></div></div>
 </section>
-
-<script>
-  // Before / After tabs
-  document.querySelectorAll("#make .seg button")
-    .forEach(button => {
-      button.addEventListener("click", () => {
-        const selected = button.dataset.t;
-
-        document.querySelectorAll("#make .seg button")
-          .forEach(tab => {
-            tab.setAttribute(
-              "aria-selected",
-              String(tab === button)
-            );
-          });
-
-        document.querySelector("#make .cl.b").hidden =
-          selected !== "b";
-
-        document.querySelector("#make .cl.a").hidden =
-          selected !== "a";
-      });
-    });
-
-  // Video autoplay
-  const video = document.getElementById("vid");
-
-  if (video) {
-    video.muted = true;
-    video.loop = true;
-
-    video.play().catch(() => {
-      console.log("Video autoplay unavailable.");
-    });
-  }
-</script>
-
 <section id="program">
   <h2 data-i18n="prH">Your 30-day <em>path</em></h2>
   <ol class="path">
@@ -555,11 +374,11 @@ header{padding:6px 8px 6px 16px;margin-top:8px}
 </section>
 <section id="expert">
   <div class="guide">
-    <div><h2 data-i18n="abH">Who will guide <em>you</em></h2><div class="who"><div class="arch"><span>M</span></div><p data-i18n="ab1">I'm Mohamed. Self-taught founder, building Plulai, using AI every day.</p></div></div>
+    <div><h2 data-i18n="abH">Who will guide <em>you</em></h2><div class="who"><div class="arch"><span>M</span><img alt="Mohamed" src="profile.jpg" onerror="this.removeAttribute('src')"></div><p data-i18n="ab1">I'm Mohamed. Self-taught founder, building Plulai, using AI every day.</p></div></div>
     <ul class="creds"><li>Delta Residency<small data-i18n="dr">Selected in the top 15 out of 1,500</small></li><li>LaunchX<small>MIT</small></li><li>Y Combinator<small data-i18n="yc">Programs</small></li><li>500 Global<small data-i18n="mentor">Mentorship</small></li></ul>
   </div>
   <h3 class="ww-h" style="font-size:1rem;font-family:var(--sans);color:var(--mut);font-weight:500;margin:48px 0 0" data-i18n="wwH">Worked with</h3>
-  <div class="ww" style="margin-top:12px"><div class="lg"><img alt="Mall of Sfax" loading="lazy"><span>Mall of Sfax</span></div><div class="lg"><img alt="Foire Internationale de Sfax" loading="lazy"><span>Foire Internationale de Sfax</span></div><div class="lg"><img alt="Growth Zone" loading="lazy"><span>Growth Zone</span></div></div>
+  <div class="ww" style="margin-top:12px"><div class="lg"><img alt="Mall of Sfax" loading="lazy" src="logo-mall.png" onerror="this.removeAttribute('src')"><span>Mall of Sfax</span></div><div class="lg"><img alt="Foire Internationale de Sfax" loading="lazy" src="logo-foire.png" onerror="this.removeAttribute('src')"><span>Foire Internationale de Sfax</span></div><div class="lg"><img alt="Growth Zone" loading="lazy" src="logo-growth.png" onerror="this.removeAttribute('src')"><span>Growth Zone</span></div></div>
 </section>
 <section id="join">
   <div class="joinp">
