@@ -311,6 +311,11 @@ header{padding:6px 8px 6px 16px;margin-top:8px}
 #theme{width:40px;padding:0}
 }
 @media(min-width:621px) and (max-width:899px){.tools a{padding:0 14px;font-size:.88rem}}
+
+/* Video preview: override the original gradient and play triangle */
+#make .mv.video-preview{position:relative;overflow:hidden;background:#101828;aspect-ratio:16/9;border-radius:16px}
+#make .mv.video-preview::before,#make .mv.video-preview::after{content:none!important;display:none!important}
+#make .mv.video-preview video,#make .mv.video-preview video[src]{display:block!important;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;background:#101828}
 </style>
 </head>
 <body>
@@ -357,25 +362,8 @@ header{padding:6px 8px 6px 16px;margin-top:8px}
           <span>A 20s ad for my coffee shop</span>
         </div>
 
-        <div class="mv">
-          <video
-            id="vid"
-            src="video.mov"
-            muted
-            loop
-            playsinline
-            autoplay
-            preload="metadata"
-            style="
-              display:block;
-              width:100%;
-              height:100%;
-              object-fit:cover;
-            "
-          ></video>
-
-          <span class="st">Rendering 72%</span>
-          <i class="bar"><u></u></i>
+        <div class="mv video-preview">
+          <video id="vid" src="./video.mov" autoplay muted loop playsinline preload="auto" aria-label="AI-generated coffee shop promotional video"></video>
         </div>
       </div>
     </div>
