@@ -311,6 +311,28 @@ header{padding:6px 8px 6px 16px;margin-top:8px}
 #theme{width:40px;padding:0}
 }
 @media(min-width:621px) and (max-width:899px){.tools a{padding:0 14px;font-size:.88rem}}
+/* ---- Clients marquee ---- */
+.ww .lg.more{background:linear-gradient(135deg,var(--dA),var(--dB));color:var(--paper);display:grid;align-content:center;gap:2px}
+.lg.more b{font-size:2.2rem;line-height:1;letter-spacing:-.04em}.lg.more span{display:block!important;font-size:.95rem;font-weight:500}
+.mqw{display:grid;gap:14px;margin-top:12px;direction:ltr;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.mrow{overflow:hidden}.mrow>div{display:flex;gap:14px;width:max-content;padding-inline-end:14px;animation:mq 46s linear infinite}
+.mrow.rev>div{animation-direction:reverse;animation-duration:54s}.mqw:hover .mrow>div{animation-play-state:paused}
+.mrow .lg{flex:none;width:190px;min-height:92px;padding:14px 18px;font-size:1rem}.mrow .lg img{max-height:46px}
+@keyframes mq{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.mrow{overflow-x:auto}.mrow>div{animation:none}}
+/* ---- Video player ---- */
+.mv video{display:none}.mv.hasv video{display:block}
+.mv.hasv::after,.mv.hasv .st,.mv.hasv .bar{display:none}
+.vc{position:absolute;z-index:3;border:0;cursor:pointer;display:none;padding:0}
+.mv.hasv .vc{display:grid}
+.vp{inset:0;width:100%;height:100%;background:transparent;place-items:center}
+.vp i{width:64px;height:64px;border-radius:50%;background:rgba(10,14,30,.5);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);display:grid;place-items:center;transition:opacity .25s}
+.vp i::before{content:"";border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent #fff;margin-inline-start:4px}
+.mv.playing .vp i{opacity:0}
+.vs{right:10px;bottom:10px;width:42px;height:42px;border-radius:50%;background:rgba(10,14,30,.55);color:#fff;font-size:1.05rem;place-items:center}
+/* ---- New light-mode backdrop ---- */
+:root:not([data-theme=dark]){--paper:#F6F8FD;--dot:transparent}
+:root:not([data-theme=dark]) body::before{background:radial-gradient(720px 480px at 10% -4%,rgba(150,130,255,.3),transparent 70%),radial-gradient(720px 480px at 94% 4%,rgba(90,175,255,.28),transparent 70%),radial-gradient(820px 520px at 62% 106%,rgba(255,186,150,.3),transparent 70%),linear-gradient(180deg,#F3F6FD,#FAF8FF)}
 </style>
 </head>
 <body>
@@ -340,7 +362,7 @@ header{padding:6px 8px 6px 16px;margin-top:8px}
   <h2 data-i18n="mkH">What you will <em>make</em></h2>
   <div class="feats">
     <div class="feat"><div class="ft"><h3 data-i18n="mk1h">AI videos</h3><p data-i18n="mk1p">Pro videos with no camera and no editor.</p></div>
-      <div class="mockc" aria-hidden="true"><div class="mp"><b>AI</b><span>A 20s ad for my coffee shop</span></div><div class="mv"><video id="vid" src="video.mp4" muted loop playsinline autoplay preload="metadata" onerror="this.removeAttribute('src')"></video><span class="st">Rendering 72%</span><i class="bar"><u></u></i></div></div></div>
+      <div class="mockc" aria-hidden="true"><div class="mp"><b>AI</b><span>A 20s ad for my coffee shop</span></div><div class="mv"><video id="vid" muted loop playsinline preload="metadata"><source src="video.mp4" type="video/mp4"><source src="video.mov" type="video/quicktime"></video><span class="st">Rendering 72%</span><i class="bar"><u></u></i></div></div></div>
     <div class="feat"><div class="ft"><h3 data-i18n="mk2h">AI images</h3><p data-i18n="mk2p">Product photos and visuals, no studio.</p></div>
       <div class="mockc" aria-hidden="true"><div class="mp"><b>AI</b><span>Product photo on a marble table</span></div><div class="mg"><i class="t1"><img alt="" loading="lazy" src="img1.jpg" onerror="this.removeAttribute('src')"></i><i class="t2"><img alt="" loading="lazy" src="img2.jpg" onerror="this.removeAttribute('src')"></i><i class="t3"><img alt="" loading="lazy" src="img3.jpg" onerror="this.removeAttribute('src')"></i><i class="t4"><img alt="" loading="lazy" src="img4.jpg" onerror="this.removeAttribute('src')"></i></div></div></div>
     <div class="feat"><div class="ft"><h3 data-i18n="mk3h">Websites with AI</h3><p data-i18n="mk3p">A landing page built from a simple prompt.</p></div>
@@ -377,8 +399,8 @@ header{padding:6px 8px 6px 16px;margin-top:8px}
     <div><h2 data-i18n="abH">Who will guide <em>you</em></h2><div class="who"><div class="arch"><span>M</span><img alt="Mohamed" src="profile.jpg" onerror="this.removeAttribute('src')"></div><p data-i18n="ab1">I'm Mohamed. Self-taught founder, building Plulai, using AI every day.</p></div></div>
     <ul class="creds"><li>Delta Residency<small data-i18n="dr">Selected in the top 15 out of 1,500</small></li><li>LaunchX<small>MIT</small></li><li>Y Combinator<small data-i18n="yc">Programs</small></li><li>500 Global<small data-i18n="mentor">Mentorship</small></li></ul>
   </div>
-  <h3 class="ww-h" style="font-size:1rem;font-family:var(--sans);color:var(--mut);font-weight:500;margin:48px 0 0" data-i18n="wwH">Worked with</h3>
-  <div class="ww" style="margin-top:12px"><div class="lg"><img alt="Mall of Sfax" loading="lazy" src="logo-mall.png" onerror="this.removeAttribute('src')"><span>Mall of Sfax</span></div><div class="lg"><img alt="Foire Internationale de Sfax" loading="lazy" src="logo-foire.png" onerror="this.removeAttribute('src')"><span>Foire Internationale de Sfax</span></div><div class="lg"><img alt="Growth Zone" loading="lazy" src="logo-growth.png" onerror="this.removeAttribute('src')"><span>Growth Zone</span></div></div>
+  <h3 class="ww-h" style="font-size:1rem;font-family:var(--sans);color:var(--mut);font-weight:500;margin:48px 0 0" data-i18n="wwH">Worked with 20+ brands</h3>
+  <div class="ww" id="ww" style="margin-top:12px"></div><noscript><p class="legal">Mall of Sfax · Foire Internationale de Sfax · Growth Zone</p></noscript>
 </section>
 <section id="join">
   <div class="joinp">
@@ -419,7 +441,7 @@ pkH:"اختر مستواك",pkS:"باقتان. أعضاء القائمة يرو�
 chip:"يُفتح قريبًا",jH:"انضم إلى قائمة انتظار دورة الذكاء الاصطناعي",jS:"كن أول من يعرف عند فتح التسجيل.",j1:"أقل سعر إطلاق لأعضاء التأسيس فقط",j2:"وصول مبكر قبل الإطلاق العام",j3:"حزمة أوامر مجانية عند الانضمام",wNote:"بانضمامك توافق على التواصل معك بخصوص إطلاق الدورة. نستخدم بياناتك لهذا الغرض فقط.",
 abH:"من سيرافقك",ab1:"أنا محمد. مؤسس عصامي، أبني Plulai وأستخدم الذكاء الاصطناعي يوميًا.",ab2:"أعلّمه كما تعلمته: ببساطة وعمليًا وبلا مصطلحات معقدة. ستخرج بمشاريع حقيقية لا ملاحظات فقط.",dr:"من بين أفضل 15 من أصل 1,500",yc:"برامج",mentor:"إرشاد",
 fqH:"قبل أن تنضم",q1:"لمن هذه الدورة؟",a1:"لرواد الأعمال والمهنيين والطلاب وصنّاع المحتوى والمستقلين. إن كنت تستطيع إرسال بريد واستخدام متصفح فلديك كل ما تحتاجه.",q2:"لست قويًا في التقنية، هل سأنجح؟",a2:"نعم. كل فكرة تُشرح ببساطة وكل خطوة تُعرض على الشاشة.",q3:"كم من الوقت تحتاج؟",a3:"تتقدم بوتيرتك. معظم الناس يحتاجون 2 إلى 4 ساعات أسبوعيًا.",q4:"لماذا أدفع وChatGPT مجاني؟",a4:"معرفة وجود الأداة لا تعني إتقانها. تتعلم أساليب مجرَّبة وأدوات أفضل وأتمتة توفر ساعات.",q5:"الأساسية أم برو؟",a5:"الأساسية للاستخدام اليومي: نص وصور وفيديو وصوت. برو تضيف الأفاتار والمحتوى متعدد اللغات والمواقع وأول وكلاء.",q6:"هل هي بالعربية؟",a6:"بالعربية والإنجليزية. [أكّد لغة الدروس قبل الإطلاق.]",
-bzH:"تملك شركة؟ لنكسب لك عملاء أكثر.",bzS:"أبني أيضًا أنظمة مبيعات ومحتوى ومساعدي ذكاء اصطناعي ليُجاب كل عميل محتمل ويُتابع ويُحجز له موعد.",bzC:"احجز مكالمة تعارف مجانية",winH:"ماذا ستكسب",g1h:"استعد ساعات كل أسبوع",g1p:"دع الذكاء الاصطناعي يكتب رسائلك ومنشوراتك وردودك.",g2h:"أنشئ كاستوديو كامل",g2p:"صور وفيديو وأصوات في دقائق.",g3h:"أتمت العمل الممل",g3p:"اضبطه مرة واحدة ودعه يتكرر.",g4h:"ابنِ أول وكيل ذكاء اصطناعي",g4p:"مشروع حقيقي تستخدمه في عملك.",bfH:"قبل",afH:"بعد",b1:"ساعات على الرسائل والمنشورات",b2:"دفع مبالغ للمصممين",b3:"لا تعرف من أين تبدأ",a1:"تنتهي في دقائق",a2:"تصنع مرئياتك بنفسك",a3:"خطة واضحة ومهارات حقيقية",bs1:"الأنسب لمن يريد توفير الوقت يوميًا",bs2:"الأنسب لمن يريد البناء والأتمتة والبيع",decH:"أيهما يناسبك؟",cta0:"شاهد ما ستكسبه",mkH:"ما ستصنعه",mk1h:"فيديوهات بالذكاء الاصطناعي",mk1p:"فيديو احترافي بدون كاميرا ولا مونتاج.",mk2h:"صور بالذكاء الاصطناعي",mk2p:"صور منتجات ومرئيات بدون استوديو.",mk3h:"مواقع بالذكاء الاصطناعي",mk3p:"صفحة هبوط من وصف بسيط.",tlH:"الأدوات التي ستستخدمها",tlP:"+ كل أدوات الأساسية",wwH:"عملت مع",fqC:"سؤال آخر؟ راسلني وسأرد شخصيًا.",nvW:"ماذا ستكسب",nvP:"الباقات",nvA:"من أنا",nvF:"الأسئلة",ftT:"دورات ذكاء اصطناعي عملية للخليج.",sd:"يوم",sc:"سطر برمجة مطلوب",sm:"وحدات",sl:"لغتان",ftH:"لنتحدث.",ftP:"أسئلة عن الدورة أو شراكات أو عملك؟ أرد شخصيًا.",mail:"أرسل بريدًا إلكترونيًا"}};
+bzH:"تملك شركة؟ لنكسب لك عملاء أكثر.",bzS:"أبني أيضًا أنظمة مبيعات ومحتوى ومساعدي ذكاء اصطناعي ليُجاب كل عميل محتمل ويُتابع ويُحجز له موعد.",bzC:"احجز مكالمة تعارف مجانية",winH:"ماذا ستكسب",g1h:"استعد ساعات كل أسبوع",g1p:"دع الذكاء الاصطناعي يكتب رسائلك ومنشوراتك وردودك.",g2h:"أنشئ كاستوديو كامل",g2p:"صور وفيديو وأصوات في دقائق.",g3h:"أتمت العمل الممل",g3p:"اضبطه مرة واحدة ودعه يتكرر.",g4h:"ابنِ أول وكيل ذكاء اصطناعي",g4p:"مشروع حقيقي تستخدمه في عملك.",bfH:"قبل",afH:"بعد",b1:"ساعات على الرسائل والمنشورات",b2:"دفع مبالغ للمصممين",b3:"لا تعرف من أين تبدأ",a1:"تنتهي في دقائق",a2:"تصنع مرئياتك بنفسك",a3:"خطة واضحة ومهارات حقيقية",bs1:"الأنسب لمن يريد توفير الوقت يوميًا",bs2:"الأنسب لمن يريد البناء والأتمتة والبيع",decH:"أيهما يناسبك؟",cta0:"شاهد ما ستكسبه",mkH:"ما ستصنعه",mk1h:"فيديوهات بالذكاء الاصطناعي",mk1p:"فيديو احترافي بدون كاميرا ولا مونتاج.",mk2h:"صور بالذكاء الاصطناعي",mk2p:"صور منتجات ومرئيات بدون استوديو.",mk3h:"مواقع بالذكاء الاصطناعي",mk3p:"صفحة هبوط من وصف بسيط.",tlH:"الأدوات التي ستستخدمها",tlP:"+ كل أدوات الأساسية",wwH:"عملت مع أكثر من 20 علامة",fqC:"سؤال آخر؟ راسلني وسأرد شخصيًا.",nvW:"ماذا ستكسب",nvP:"الباقات",nvA:"من أنا",nvF:"الأسئلة",ftT:"دورات ذكاء اصطناعي عملية للخليج.",sd:"يوم",sc:"سطر برمجة مطلوب",sm:"وحدات",sl:"لغتان",ftH:"لنتحدث.",ftP:"أسئلة عن الدورة أو شراكات أو عملك؟ أرد شخصيًا.",mail:"أرسل بريدًا إلكترونيًا"}};
 const $=s=>document.querySelector(s);
 const COUNTRIES=[['QA',974],['AE',971],['SA',966],['KW',965],['BH',973],['OM',968],['TN',216],['EG',20],['JO',962],['MA',212],['DZ',213],['LY',218],['LB',961],['IQ',964],['PS',970],['TR',90],['FR',33],['GB',44],['US',1],['CA',1],['DE',49],['PK',92],['IN',91]];
 function guessIso(){const m={'Asia/Qatar':'QA','Asia/Dubai':'AE','Asia/Riyadh':'SA','Asia/Kuwait':'KW','Asia/Bahrain':'BH','Asia/Muscat':'OM','Africa/Tunis':'TN','Africa/Cairo':'EG'};let z='';try{z=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(e){}return m[z]||'QA'}
@@ -477,6 +499,23 @@ document.getElementById('theme').onclick=()=>{const r=document.documentElement,n
 function set(t){bs.forEach(b=>b.setAttribute('aria-selected',b.dataset.t===t));pb.hidden=t!=='b';pa.hidden=t!=='a'}
 let t='b',iv;if(!matchMedia('(prefers-reduced-motion: reduce)').matches){iv=setInterval(()=>{t=t==='b'?'a':'b';set(t)},3600)}
 bs.forEach(b=>b.onclick=()=>{clearInterval(iv);set(b.dataset.t)})})();
+(function(){const CL=[["Mall of Sfax","logo-mall.png"],["Foire Internationale de Sfax","logo-foire.png"],["Growth Zone","logo-growth.png"]];/* add clients: ["Name","file.png"] */
+const esc=t=>t.replace(/"/g,'&quot;');
+const tile=c=>'<div class="lg"><img alt="'+esc(c[0])+'" loading="lazy" src="'+c[1]+'" onerror="this.removeAttribute(\'src\')"><span>'+c[0]+'</span></div>';
+function build(){const b=document.getElementById('ww');if(!b)return;
+if(CL.length<8){b.className='ww';b.innerHTML=CL.map(tile).join('')+'<div class="lg more"><b>20+</b><span>'+(document.documentElement.lang==='ar'?'عميل':'clients')+'</span></div>';return}
+b.className='mqw';const h=Math.ceil(CL.length/2);b.innerHTML=[CL.slice(0,h),CL.slice(h)].map((r,i)=>{const t=r.map(tile).join('');return '<div class="mrow'+(i?' rev':'')+'"><div>'+t+t+'</div></div>'}).join('')}
+build();document.getElementById('lang').addEventListener('click',()=>setTimeout(build,0));
+const v=document.getElementById('vid');if(!v)return;const mv=v.closest('.mv');let manual=false;
+const pp=document.createElement('button');pp.type='button';pp.className='vc vp';pp.setAttribute('aria-label','Play or pause video');pp.innerHTML='<i></i>';
+const sd=document.createElement('button');sd.type='button';sd.className='vc vs';sd.setAttribute('aria-label','Sound on or off');sd.textContent='🔇';
+mv.append(pp,sd);
+v.addEventListener('loadeddata',()=>mv.classList.add('hasv'));
+v.addEventListener('play',()=>mv.classList.add('playing'));v.addEventListener('pause',()=>mv.classList.remove('playing'));
+pp.onclick=()=>{if(v.paused){manual=false;v.play().catch(()=>{})}else{manual=true;v.pause()}};
+sd.onclick=e=>{e.stopPropagation();v.muted=!v.muted;sd.textContent=v.muted?'🔇':'🔊';if(v.paused&&!manual)v.play().catch(()=>{})};
+if('IntersectionObserver' in window){new IntersectionObserver(e=>{if(e[0].isIntersecting){if(!manual&&!matchMedia('(prefers-reduced-motion: reduce)').matches)v.play().catch(()=>{})}else v.pause()},{threshold:.4}).observe(mv)}
+v.load()})();
 </script>
 </body>
 </html>
