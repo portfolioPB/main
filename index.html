@@ -333,6 +333,14 @@ header{padding:6px 8px 6px 16px;margin-top:8px}
 /* ---- New light-mode backdrop ---- */
 :root:not([data-theme=dark]){--paper:#F6F8FD;--dot:transparent}
 :root:not([data-theme=dark]) body::before{background:radial-gradient(720px 480px at 10% -4%,rgba(150,130,255,.3),transparent 70%),radial-gradient(720px 480px at 94% 4%,rgba(90,175,255,.28),transparent 70%),radial-gradient(820px 520px at 62% 106%,rgba(255,186,150,.3),transparent 70%),linear-gradient(180deg,#F3F6FD,#FAF8FF)}
+/* ---- Clients scroller ---- */
+.cs-wrap{position:relative;margin-top:12px}
+.cs{display:flex;gap:14px;overflow-x:auto;padding:6px 2px 20px;scrollbar-width:none;direction:ltr;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
+.cs::-webkit-scrollbar{display:none}.cs .lg{flex:none;width:200px;min-height:104px}
+.cs-b{display:none;position:absolute;top:calc(50% - 32px);z-index:2;width:46px;height:46px;border-radius:50%;border:1px solid var(--gbd);background:linear-gradient(135deg,var(--gA),var(--gB));-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);color:var(--ink);font-size:1.6rem;line-height:1;cursor:pointer;box-shadow:var(--gsh);place-items:center;padding:0 0 3px}
+.cs-b.prev{left:-6px}.cs-b.next{right:-6px}
+@media(hover:hover) and (min-width:820px){.cs-b{display:grid}}
+@media(max-width:620px){.cs .lg{width:160px;min-height:92px}}
 </style>
 </head>
 <body>
@@ -362,7 +370,7 @@ header{padding:6px 8px 6px 16px;margin-top:8px}
   <h2 data-i18n="mkH">What you will <em>make</em></h2>
   <div class="feats">
     <div class="feat"><div class="ft"><h3 data-i18n="mk1h">AI videos</h3><p data-i18n="mk1p">Pro videos with no camera and no editor.</p></div>
-      <div class="mockc" aria-hidden="true"><div class="mp"><b>AI</b><span>A 20s ad for my coffee shop</span></div><div class="mv"><video id="vid" muted loop playsinline preload="metadata"><source src="video.mp4" type="video/mp4"><source src="video.mov" type="video/quicktime"></video><span class="st">Rendering 72%</span><i class="bar"><u></u></i></div></div></div>
+      <div class="mockc" aria-hidden="true"><div class="mp"><b>AI</b><span>A 20s ad for my coffee shop</span></div><div class="mv"><video id="vid" muted loop playsinline preload="auto"><source src="video.mp4"><source src="video.mov"><source src="video.MOV"></video><span class="st">Rendering 72%</span><i class="bar"><u></u></i></div></div></div>
     <div class="feat"><div class="ft"><h3 data-i18n="mk2h">AI images</h3><p data-i18n="mk2p">Product photos and visuals, no studio.</p></div>
       <div class="mockc" aria-hidden="true"><div class="mp"><b>AI</b><span>Product photo on a marble table</span></div><div class="mg"><i class="t1"><img alt="" loading="lazy" src="img1.jpg" onerror="this.removeAttribute('src')"></i><i class="t2"><img alt="" loading="lazy" src="img2.jpg" onerror="this.removeAttribute('src')"></i><i class="t3"><img alt="" loading="lazy" src="img3.jpg" onerror="this.removeAttribute('src')"></i><i class="t4"><img alt="" loading="lazy" src="img4.jpg" onerror="this.removeAttribute('src')"></i></div></div></div>
     <div class="feat"><div class="ft"><h3 data-i18n="mk3h">Websites with AI</h3><p data-i18n="mk3p">A landing page built from a simple prompt.</p></div>
@@ -502,15 +510,22 @@ bs.forEach(b=>b.onclick=()=>{clearInterval(iv);set(b.dataset.t)})})();
 (function(){const CL=[["Mall of Sfax","logo-mall.png"],["Foire Internationale de Sfax","logo-foire.png"],["Growth Zone","logo-growth.png"]];/* add clients: ["Name","file.png"] */
 const esc=t=>t.replace(/"/g,'&quot;');
 const tile=c=>'<div class="lg"><img alt="'+esc(c[0])+'" loading="lazy" src="'+c[1]+'" onerror="this.removeAttribute(\'src\')"><span>'+c[0]+'</span></div>';
-function build(){const b=document.getElementById('ww');if(!b)return;
-if(CL.length<8){b.className='ww';b.innerHTML=CL.map(tile).join('')+'<div class="lg more"><b>20+</b><span>'+(document.documentElement.lang==='ar'?'عميل':'clients')+'</span></div>';return}
-b.className='mqw';const h=Math.ceil(CL.length/2);b.innerHTML=[CL.slice(0,h),CL.slice(h)].map((r,i)=>{const t=r.map(tile).join('');return '<div class="mrow'+(i?' rev':'')+'"><div>'+t+t+'</div></div>'}).join('')}
+function build(){const b=document.getElementById('ww');if(!b)return;clearInterval(window._csI);
+b.className='cs-wrap';
+b.innerHTML='<button type="button" class="cs-b prev" aria-label="Previous">‹</button><div class="cs" tabindex="0" aria-label="Clients"><div class="lg more"><b>20+</b><span>'+(document.documentElement.lang==='ar'?'عميل':'clients')+'</span></div>'+CL.map(tile).join('')+'</div><button type="button" class="cs-b next" aria-label="Next">›</button>';
+const cs=b.querySelector('.cs');let paused=false,idle;
+const stop=()=>{paused=true;clearTimeout(idle)},go=()=>{clearTimeout(idle);idle=setTimeout(()=>{paused=false},2500)};
+['pointerdown','touchstart','wheel','mouseenter','focusin'].forEach(e=>cs.addEventListener(e,stop,{passive:true}));
+['pointerup','touchend','mouseleave','focusout'].forEach(e=>cs.addEventListener(e,go,{passive:true}));
+b.querySelector('.prev').onclick=()=>{stop();cs.scrollBy({left:-cs.clientWidth*.8,behavior:'smooth'});go()};
+b.querySelector('.next').onclick=()=>{stop();cs.scrollBy({left:cs.clientWidth*.8,behavior:'smooth'});go()};
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){window._csI=setInterval(()=>{if(paused||document.hidden)return;if(cs.scrollLeft+cs.clientWidth>=cs.scrollWidth-2){paused=true;setTimeout(()=>{cs.scrollTo({left:0,behavior:'smooth'});setTimeout(()=>{paused=false},1400)},1200);return}cs.scrollLeft+=1},28)}}
 build();document.getElementById('lang').addEventListener('click',()=>setTimeout(build,0));
 const v=document.getElementById('vid');if(!v)return;const mv=v.closest('.mv');let manual=false;
 const pp=document.createElement('button');pp.type='button';pp.className='vc vp';pp.setAttribute('aria-label','Play or pause video');pp.innerHTML='<i></i>';
 const sd=document.createElement('button');sd.type='button';sd.className='vc vs';sd.setAttribute('aria-label','Sound on or off');sd.textContent='🔇';
 mv.append(pp,sd);
-v.addEventListener('loadeddata',()=>mv.classList.add('hasv'));
+const ok=()=>mv.classList.add('hasv');['loadedmetadata','loadeddata','canplay'].forEach(e=>v.addEventListener(e,ok));if(v.readyState>=1)ok();
 v.addEventListener('play',()=>mv.classList.add('playing'));v.addEventListener('pause',()=>mv.classList.remove('playing'));
 pp.onclick=()=>{if(v.paused){manual=false;v.play().catch(()=>{})}else{manual=true;v.pause()}};
 sd.onclick=e=>{e.stopPropagation();v.muted=!v.muted;sd.textContent=v.muted?'🔇':'🔊';if(v.paused&&!manual)v.play().catch(()=>{})};
