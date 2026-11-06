@@ -522,6 +522,12 @@ b.querySelector('.next').onclick=()=>{stop();cs.scrollBy({left:cs.clientWidth*.8
 if(!matchMedia('(prefers-reduced-motion: reduce)').matches){window._csI=setInterval(()=>{if(paused||document.hidden)return;if(cs.scrollLeft+cs.clientWidth>=cs.scrollWidth-2){paused=true;setTimeout(()=>{cs.scrollTo({left:0,behavior:'smooth'});setTimeout(()=>{paused=false},1400)},1200);return}cs.scrollLeft+=1},28)}}
 build();document.getElementById('lang').addEventListener('click',()=>setTimeout(build,0));
 const v=document.getElementById('vid');if(!v)return;const mv=v.closest('.mv');let manual=false;
+if(/debug/.test(location.search+location.hash)){const d=document.createElement('pre');d.style.cssText='position:fixed;z-index:99;left:8px;right:8px;bottom:8px;max-height:45vh;overflow:auto;margin:0;padding:12px;border-radius:12px;background:#000c;color:#9f9;font:12px/1.4 monospace;white-space:pre-wrap';document.body.append(d);
+const L=t=>{d.textContent+=t+'\n'};L('H.264 mp4 supported: '+(v.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"')||'NO'));
+v.querySelectorAll('source').forEach(so=>so.addEventListener('error',()=>L('FAILED to load: '+so.getAttribute('src')+' (missing file or wrong folder)')));
+v.addEventListener('loadedmetadata',()=>L('OK metadata: '+v.currentSrc+' '+v.videoWidth+'x'+v.videoHeight));
+v.addEventListener('error',()=>L('VIDEO ERROR code '+(v.error&&v.error.code)+' (4 = format/codec not supported)'));
+v.addEventListener('playing',()=>L('PLAYING'));setTimeout(()=>L('after 4s: readyState='+v.readyState+' networkState='+v.networkState),4000)}
 const YT='';/* optional: paste a YouTube video ID here to use YouTube instead of video.mp4 */
 if(YT){const f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+YT+'?autoplay=1&mute=1&loop=1&playlist='+YT+'&playsinline=1&rel=0';f.allow='autoplay; encrypted-media; picture-in-picture';f.title='Video';f.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:0';mv.innerHTML='';mv.classList.add('hasv');mv.append(f);return}
 const pp=document.createElement('button');pp.type='button';pp.className='vc vp';pp.setAttribute('aria-label','Play or pause video');pp.innerHTML='<i></i>';
