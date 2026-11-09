@@ -345,12 +345,48 @@ header{padding:6px 8px 6px 16px;margin-top:8px}
 .cs-b.prev{left:-6px}.cs-b.next{right:-6px}
 @media(hover:hover) and (min-width:820px){.cs-b{display:grid}}
 @media(max-width:620px){.cs .lg{width:160px;min-height:92px}}
+/* ---- Clients: premium panel ---- */
+.trust{margin-top:56px;padding:clamp(22px,4vw,42px);border-radius:32px;background:linear-gradient(135deg,var(--gA),var(--gB));-webkit-backdrop-filter:blur(22px) saturate(170%);backdrop-filter:blur(22px) saturate(170%);border:1px solid var(--gbd);box-shadow:inset 0 1.5px 0 var(--gin),var(--gsh)}
+.th{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:26px}
+.num{font-family:var(--disp);font-weight:500;font-size:clamp(3.6rem,13vw,6.4rem);line-height:.9;letter-spacing:-.05em}
+.num em{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;font-size:1.05em;letter-spacing:0}
+[dir=rtl] .num em{font-family:inherit;font-style:normal}
+.th p{margin:12px 0 0;color:var(--mut);font-weight:500}
+.ta{display:flex;gap:10px}.ta .cs-b{position:static;display:grid}
+.prog{height:3px;border-radius:9px;background:var(--gbd);margin-top:4px;overflow:hidden;direction:ltr}.prog i{display:block;height:100%;width:30%;background:var(--ink);border-radius:9px;transition:margin .1s linear}
+figure.lg{margin:0}
+.cs .lg{background:#fff;color:#16130F;border:1px solid rgba(15,24,54,.08);border-radius:22px;width:200px;min-height:0;padding:0;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 16px 34px -22px rgba(0,0,0,.5);transition:transform .3s,box-shadow .3s}
+.cs .lg:hover{transform:translateY(-5px);box-shadow:0 26px 44px -22px rgba(0,0,0,.55)}
+.lg .im{height:106px;display:grid;place-items:center;padding:16px 20px;font-weight:700;font-size:1.05rem;text-align:center;line-height:1.2}
+.lg img{filter:grayscale(1);opacity:.78;transition:filter .3s,opacity .3s;max-height:58px}
+.lg:hover img{filter:none;opacity:1}
+@media(hover:none){.lg img{filter:none;opacity:1}}
+.lg figcaption{border-top:1px solid rgba(15,24,54,.08);padding:10px 14px;font-size:.82rem;color:#6B6B7B;text-align:center;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media(max-width:620px){.ta{display:none}.cs .lg{width:172px}.lg .im{height:92px}}
+/* ---- Free resources ---- */
+.frs{margin:-12px 0 28px;color:var(--mut);font-size:1.1rem;max-width:44ch}
+.fr{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 18px;scrollbar-width:none;margin-inline:-22px;padding-inline:22px;scroll-padding-inline:22px}
+.fr::-webkit-scrollbar{display:none}
+.fc{flex:0 0 78%;scroll-snap-align:start;display:flex;flex-direction:column;gap:14px;padding:14px;border-radius:28px;background:linear-gradient(135deg,var(--gA),var(--gB));-webkit-backdrop-filter:blur(22px) saturate(170%);backdrop-filter:blur(22px) saturate(170%);border:1px solid var(--gbd);box-shadow:inset 0 1.5px 0 var(--gin),var(--gsh);transition:transform .3s}
+.fc:hover{transform:translateY(-5px)}
+.thumb{position:relative;aspect-ratio:16/10;border-radius:18px;overflow:hidden}
+.thumb::before{content:"";position:absolute;inset:20% 24% -12%;background:#fff;border-radius:10px 10px 0 0;box-shadow:0 10px 24px rgba(0,0,0,.22)}
+.thumb::after{content:"";position:absolute;inset:34% 32% auto;height:40%;background:repeating-linear-gradient(#D9DDF0 0 6px,transparent 6px 16px);border-radius:3px}
+.th1{background:linear-gradient(135deg,#2B3FE8,#8B6CFF)}.th2{background:linear-gradient(135deg,#FF8A3D,#F0449A)}.th3{background:linear-gradient(135deg,#1FA37A,#58D6C1)}
+.th2::after{background:repeating-linear-gradient(90deg,#F6D7B8 0 18px,transparent 18px 24px),#fff;background-blend-mode:normal;height:30%}
+.free{position:absolute;top:10px;inset-inline-start:10px;z-index:2;background:rgba(255,255,255,.95);color:#16130F;font-size:.74rem;font-weight:700;padding:3px 11px;border-radius:99px}
+.fb2{padding:0 6px;flex:1}.ty{display:inline-block;font-size:.78rem;font-weight:600;color:var(--mut);border:1px solid var(--gbd);border-radius:99px;padding:2px 10px;margin-bottom:10px}
+.fb2 h3{font-size:1.4rem;line-height:1.15;margin-bottom:6px}.fb2 p{margin:0;color:var(--mut);font-size:.97rem}
+.fc .btn{width:100%;min-height:50px}
+.fc.more{background:transparent;border:1.5px dashed var(--gbd);box-shadow:none;justify-content:space-between;padding:24px}
+.fc.more .plus{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--btnbg);color:var(--btntxt);font-size:1.8rem;font-weight:300;margin-bottom:16px;line-height:1}
+@media(min-width:820px){.fr{display:grid;grid-template-columns:repeat(4,1fr);overflow:visible;margin-inline:0;padding-inline:0}.fc{flex:none}}
 </style>
 </head>
 <body>
 <a class="skip" href="#top">Skip to content</a>
 <div class="wrap">
-<header><a class="logo" href="#top" data-i18n="name">Mohamed</a><nav class="nv" aria-label="Sections"><a href="#win" data-i18n="nvW">What you win</a><a href="#packs" data-i18n="nvP">Packs</a><a href="#expert" data-i18n="nvA">About</a><a href="#faq" data-i18n="nvF">FAQ</a></nav><div class="tools"><button id="theme" type="button" aria-label="Toggle light and dark">◐</button><button id="lang" type="button" aria-label="Switch language">العربية</button><a href="#join" data-i18n="nav">Join the waitlist</a></div></header>
+<header><a class="logo" href="#top" data-i18n="name">Mohamed</a><nav class="nv" aria-label="Sections"><a href="#win" data-i18n="nvW">What you win</a><a href="#packs" data-i18n="nvP">Packs</a><a href="#expert" data-i18n="nvA">About</a><a href="#free" data-i18n="nvR">Resources</a><a href="#faq" data-i18n="nvF">FAQ</a></nav><div class="tools"><button id="theme" type="button" aria-label="Toggle light and dark">◐</button><button id="lang" type="button" aria-label="Switch language">العربية</button><a href="#join" data-i18n="nav">Join the waitlist</a></div></header>
 <main id="top">
 <div class="hero">
   <div>
@@ -374,7 +410,7 @@ header{padding:6px 8px 6px 16px;margin-top:8px}
   <h2 data-i18n="mkH">What you will <em>make</em></h2>
   <div class="feats">
     <div class="feat"><div class="ft"><h3 data-i18n="mk1h">AI videos</h3><p data-i18n="mk1p">Pro videos with no camera and no editor.</p></div>
-      <div class="mockc" aria-hidden="true"><div class="mp"><b>AI</b><span>A 20s ad for my coffee shop</span></div><div class="mv"><video id="vid" muted loop playsinline preload="auto"><source src="video.mp4"><source src="video.mov"><source src="video.MOV"><source src="video.webm"></video><span class="st">Rendering 72%</span><i class="bar"><u></u></i></div></div></div>
+      <div class="mockc" aria-hidden="true"><div class="mp"><b>AI</b><span>Turn my idea into a 30-second video</span></div><div class="mv"><video id="vid" muted loop playsinline preload="auto"><source src="video.mp4"><source src="video.mov"><source src="video.MOV"><source src="video.webm"></video><span class="st">Rendering 72%</span><i class="bar"><u></u></i></div></div></div>
     <div class="feat"><div class="ft"><h3 data-i18n="mk2h">AI images</h3><p data-i18n="mk2p">Product photos and visuals, no studio.</p></div>
       <div class="mockc" aria-hidden="true"><div class="mp"><b>AI</b><span>Product photo on a marble table</span></div><div class="mg"><i class="t1"><img alt="" loading="lazy" src="img1.jpg" onerror="this.removeAttribute('src')"></i><i class="t2"><img alt="" loading="lazy" src="img2.jpg" onerror="this.removeAttribute('src')"></i><i class="t3"><img alt="" loading="lazy" src="img3.jpg" onerror="this.removeAttribute('src')"></i><i class="t4"><img alt="" loading="lazy" src="img4.jpg" onerror="this.removeAttribute('src')"></i></div></div></div>
     <div class="feat"><div class="ft"><h3 data-i18n="mk3h">Websites with AI</h3><p data-i18n="mk3p">A landing page built from a simple prompt.</p></div>
@@ -411,8 +447,13 @@ header{padding:6px 8px 6px 16px;margin-top:8px}
     <div><h2 data-i18n="abH">Who will guide <em>you</em></h2><div class="who"><div class="arch"><span>M</span><img alt="Mohamed" src="profile.jpg" onerror="this.removeAttribute('src')"></div><p data-i18n="ab1">I'm Mohamed. Self-taught founder, building Plulai, using AI every day.</p></div></div>
     <ul class="creds"><li>Delta Residency<small data-i18n="dr">Selected in the top 15 out of 1,500</small></li><li>LaunchX<small>MIT</small></li><li>Y Combinator<small data-i18n="yc">Programs</small></li><li>500 Global<small data-i18n="mentor">Mentorship</small></li></ul>
   </div>
-  <h3 class="ww-h" style="font-size:1rem;font-family:var(--sans);color:var(--mut);font-weight:500;margin:48px 0 0" data-i18n="wwH">Worked with 20+ brands</h3>
-  <div class="ww" id="ww" style="margin-top:12px"></div><noscript><p class="legal">Mall of Sfax · Foire Internationale de Sfax · Growth Zone</p></noscript>
+  <div class="trust"><div class="th"><div><div class="num">20<em>+</em></div><p data-i18n="wwT">Brands I've worked with</p></div><div class="ta"><button type="button" class="cs-b" id="csP" aria-label="Previous">‹</button><button type="button" class="cs-b" id="csN" aria-label="Next">›</button></div></div>
+  <div id="ww"></div><div class="prog" aria-hidden="true"><i></i></div><noscript><p class="legal">Mall of Sfax · Foire Internationale de Sfax · Growth Zone</p></noscript></div>
+</section>
+<section id="free">
+  <h2 data-i18n="frH">Free <em>resources</em></h2>
+  <p class="frs" data-i18n="frS">Start learning today. No payment, no card.</p>
+  <div class="fr"><article class="fc"><div class="thumb th1"><span class="free" data-i18n="frF">Free</span></div><div class="fb2"><span class="ty" data-i18n="ty1">PDF</span><h3 data-i18n="fr1h">50 AI prompts for work</h3><p data-i18n="fr1p">Copy, paste and save hours on emails, posts and replies.</p></div><a class="btn line" href="#join" data-i18n="frB">Get it free</a></article><article class="fc"><div class="thumb th2"><span class="free" data-i18n="frF">Free</span></div><div class="fb2"><span class="ty" data-i18n="ty2">Cheat sheet</span><h3 data-i18n="fr2h">The AI tools cheat sheet</h3><p data-i18n="fr2p">Which tool to use for videos, images, websites and voice.</p></div><a class="btn line" href="#join" data-i18n="frB">Get it free</a></article><article class="fc"><div class="thumb th3"><span class="free" data-i18n="frF">Free</span></div><div class="fb2"><span class="ty" data-i18n="ty3">Template</span><h3 data-i18n="fr3h">Your 30-day AI plan</h3><p data-i18n="fr3p">A simple weekly plan to go from zero to your first project.</p></div><a class="btn line" href="#join" data-i18n="frB">Get it free</a></article><article class="fc more"><div class="fb2"><span class="plus">+</span><h3 data-i18n="frM">More coming soon</h3><p data-i18n="frMd">Join the waitlist to get every new resource first.</p></div><a class="btn" href="#join" data-i18n="nav">Join the waitlist</a></article></div>
 </section>
 <section id="join">
   <div class="joinp">
@@ -439,7 +480,7 @@ header{padding:6px 8px 6px 16px;margin-top:8px}
   <p class="faqc"><a href="mailto:zvmmed@gmail.com" data-i18n="fqC">Another question? Email me and I reply personally.</a></p>
 </section>
 </main>
-<footer id="contact"><h2 data-i18n="ftH">Let's <em>talk.</em></h2><div class="fl"><a class="btn" href="mailto:zvmmed@gmail.com" data-i18n="mail">Send an email</a><a class="mail" href="mailto:zvmmed@gmail.com">zvmmed@gmail.com</a></div><div class="fgrid"><div class="fb">Mohamed<small data-i18n="ftT">Practical AI courses for the Gulf.</small></div><nav class="fnav"><a href="#win" data-i18n="nvW">What you win</a><a href="#packs" data-i18n="nvP">Packs</a><a href="#expert" data-i18n="nvA">About</a><a href="#faq" data-i18n="nvF">FAQ</a><a href="#join" data-i18n="nav">Join the waitlist</a></nav></div>
+<footer id="contact"><h2 data-i18n="ftH">Let's <em>talk.</em></h2><div class="fl"><a class="btn" href="mailto:zvmmed@gmail.com" data-i18n="mail">Send an email</a><a class="mail" href="mailto:zvmmed@gmail.com">zvmmed@gmail.com</a></div><div class="fgrid"><div class="fb">Mohamed<small data-i18n="ftT">Practical AI courses for the Gulf.</small></div><nav class="fnav"><a href="#win" data-i18n="nvW">What you win</a><a href="#packs" data-i18n="nvP">Packs</a><a href="#expert" data-i18n="nvA">About</a><a href="#free" data-i18n="nvR">Resources</a><a href="#faq" data-i18n="nvF">FAQ</a><a href="#join" data-i18n="nav">Join the waitlist</a></nav></div>
 <p class="legal"><a class="biz" href="mailto:zvmmed@gmail.com?subject=Discovery%20call" data-i18n="bzC">Book a free discovery call</a></p><noscript><p class="legal">Please enable JavaScript to join the waitlist, or email us.</p></noscript><p class="legal">© 2026 Mohamed</p></footer>
 </div>
 <a id="stick" href="#join" data-i18n="nav">Join the waitlist</a>
@@ -453,7 +494,7 @@ pkH:"اختر مستواك",pkS:"باقتان. أعضاء القائمة يرو�
 chip:"يُفتح قريبًا",jH:"انضم إلى قائمة انتظار دورة الذكاء الاصطناعي",jS:"كن أول من يعرف عند فتح التسجيل.",j1:"أقل سعر إطلاق لأعضاء التأسيس فقط",j2:"وصول مبكر قبل الإطلاق العام",j3:"حزمة أوامر مجانية عند الانضمام",wNote:"بانضمامك توافق على التواصل معك بخصوص إطلاق الدورة. نستخدم بياناتك لهذا الغرض فقط.",
 abH:"من سيرافقك",ab1:"أنا محمد. مؤسس عصامي، أبني Plulai وأستخدم الذكاء الاصطناعي يوميًا.",ab2:"أعلّمه كما تعلمته: ببساطة وعمليًا وبلا مصطلحات معقدة. ستخرج بمشاريع حقيقية لا ملاحظات فقط.",dr:"من بين أفضل 15 من أصل 1,500",yc:"برامج",mentor:"إرشاد",
 fqH:"قبل أن تنضم",q1:"لمن هذه الدورة؟",a1:"لرواد الأعمال والمهنيين والطلاب وصنّاع المحتوى والمستقلين. إن كنت تستطيع إرسال بريد واستخدام متصفح فلديك كل ما تحتاجه.",q2:"لست قويًا في التقنية، هل سأنجح؟",a2:"نعم. كل فكرة تُشرح ببساطة وكل خطوة تُعرض على الشاشة.",q3:"كم من الوقت تحتاج؟",a3:"تتقدم بوتيرتك. معظم الناس يحتاجون 2 إلى 4 ساعات أسبوعيًا.",q4:"لماذا أدفع وChatGPT مجاني؟",a4:"معرفة وجود الأداة لا تعني إتقانها. تتعلم أساليب مجرَّبة وأدوات أفضل وأتمتة توفر ساعات.",q5:"الأساسية أم برو؟",a5:"الأساسية للاستخدام اليومي: نص وصور وفيديو وصوت. برو تضيف الأفاتار والمحتوى متعدد اللغات والمواقع وأول وكلاء.",q6:"هل هي بالعربية؟",a6:"بالعربية والإنجليزية. [أكّد لغة الدروس قبل الإطلاق.]",
-bzH:"تملك شركة؟ لنكسب لك عملاء أكثر.",bzS:"أبني أيضًا أنظمة مبيعات ومحتوى ومساعدي ذكاء اصطناعي ليُجاب كل عميل محتمل ويُتابع ويُحجز له موعد.",bzC:"احجز مكالمة تعارف مجانية",winH:"ماذا ستكسب",g1h:"استعد ساعات كل أسبوع",g1p:"دع الذكاء الاصطناعي يكتب رسائلك ومنشوراتك وردودك.",g2h:"أنشئ كاستوديو كامل",g2p:"صور وفيديو وأصوات في دقائق.",g3h:"أتمت العمل الممل",g3p:"اضبطه مرة واحدة ودعه يتكرر.",g4h:"ابنِ أول وكيل ذكاء اصطناعي",g4p:"مشروع حقيقي تستخدمه في عملك.",bfH:"قبل",afH:"بعد",b1:"ساعات على الرسائل والمنشورات",b2:"دفع مبالغ للمصممين",b3:"لا تعرف من أين تبدأ",a1:"تنتهي في دقائق",a2:"تصنع مرئياتك بنفسك",a3:"خطة واضحة ومهارات حقيقية",bs1:"الأنسب لمن يريد توفير الوقت يوميًا",bs2:"الأنسب لمن يريد البناء والأتمتة والبيع",decH:"أيهما يناسبك؟",cta0:"شاهد ما ستكسبه",mkH:"ما ستصنعه",mk1h:"فيديوهات بالذكاء الاصطناعي",mk1p:"فيديو احترافي بدون كاميرا ولا مونتاج.",mk2h:"صور بالذكاء الاصطناعي",mk2p:"صور منتجات ومرئيات بدون استوديو.",mk3h:"مواقع بالذكاء الاصطناعي",mk3p:"صفحة هبوط من وصف بسيط.",tlH:"الأدوات التي ستستخدمها",tlP:"+ كل أدوات الأساسية",wwH:"عملت مع أكثر من 20 علامة",fqC:"سؤال آخر؟ راسلني وسأرد شخصيًا.",nvW:"ماذا ستكسب",nvP:"الباقات",nvA:"من أنا",nvF:"الأسئلة",ftT:"دورات ذكاء اصطناعي عملية للخليج.",sd:"يوم",sc:"سطر برمجة مطلوب",sm:"وحدات",sl:"لغتان",ftH:"لنتحدث.",ftP:"أسئلة عن الدورة أو شراكات أو عملك؟ أرد شخصيًا.",mail:"أرسل بريدًا إلكترونيًا"}};
+bzH:"تملك شركة؟ لنكسب لك عملاء أكثر.",bzS:"أبني أيضًا أنظمة مبيعات ومحتوى ومساعدي ذكاء اصطناعي ليُجاب كل عميل محتمل ويُتابع ويُحجز له موعد.",bzC:"احجز مكالمة تعارف مجانية",winH:"ماذا ستكسب",g1h:"استعد ساعات كل أسبوع",g1p:"دع الذكاء الاصطناعي يكتب رسائلك ومنشوراتك وردودك.",g2h:"أنشئ كاستوديو كامل",g2p:"صور وفيديو وأصوات في دقائق.",g3h:"أتمت العمل الممل",g3p:"اضبطه مرة واحدة ودعه يتكرر.",g4h:"ابنِ أول وكيل ذكاء اصطناعي",g4p:"مشروع حقيقي تستخدمه في عملك.",bfH:"قبل",afH:"بعد",b1:"ساعات على الرسائل والمنشورات",b2:"دفع مبالغ للمصممين",b3:"لا تعرف من أين تبدأ",a1:"تنتهي في دقائق",a2:"تصنع مرئياتك بنفسك",a3:"خطة واضحة ومهارات حقيقية",bs1:"الأنسب لمن يريد توفير الوقت يوميًا",bs2:"الأنسب لمن يريد البناء والأتمتة والبيع",decH:"أيهما يناسبك؟",cta0:"شاهد ما ستكسبه",mkH:"ما ستصنعه",mk1h:"فيديوهات بالذكاء الاصطناعي",mk1p:"فيديو احترافي بدون كاميرا ولا مونتاج.",mk2h:"صور بالذكاء الاصطناعي",mk2p:"صور منتجات ومرئيات بدون استوديو.",mk3h:"مواقع بالذكاء الاصطناعي",mk3p:"صفحة هبوط من وصف بسيط.",tlH:"الأدوات التي ستستخدمها",tlP:"+ كل أدوات الأساسية",wwH:"عملت مع أكثر من 20 علامة",fqC:"سؤال آخر؟ راسلني وسأرد شخصيًا.",nvW:"ماذا ستكسب",nvP:"الباقات",nvA:"من أنا",nvF:"الأسئلة",ftT:"دورات ذكاء اصطناعي عملية للخليج.",wwT:"علامات عملت معها",frH:"موارد مجانية",frS:"ابدأ التعلم اليوم. بدون دفع وبدون بطاقة.",fr1h:"50 أمرًا ذكيًا للعمل",fr1p:"انسخ والصق ووفّر ساعات في الرسائل والمنشورات والردود.",fr2h:"ورقة أدوات الذكاء الاصطناعي",fr2p:"أي أداة تستخدم للفيديو والصور والمواقع والصوت.",fr3h:"خطتك لـ 30 يومًا",fr3p:"خطة أسبوعية بسيطة للانتقال من الصفر إلى أول مشروع.",ty1:"PDF",ty2:"ورقة مرجعية",ty3:"قالب",frB:"احصل عليه مجانًا",frF:"مجاني",frM:"المزيد قريبًا",frMd:"انضم للقائمة لتحصل على كل مورد جديد أولًا.",nvR:"الموارد",sd:"يوم",sc:"سطر برمجة مطلوب",sm:"وحدات",sl:"لغتان",ftH:"لنتحدث.",ftP:"أسئلة عن الدورة أو شراكات أو عملك؟ أرد شخصيًا.",mail:"أرسل بريدًا إلكترونيًا"}};
 const $=s=>document.querySelector(s);
 const COUNTRIES=[['QA',974],['AE',971],['SA',966],['KW',965],['BH',973],['OM',968],['TN',216],['EG',20],['JO',962],['MA',212],['DZ',213],['LY',218],['LB',961],['IQ',964],['PS',970],['TR',90],['FR',33],['GB',44],['US',1],['CA',1],['DE',49],['PK',92],['IN',91]];
 function guessIso(){const m={'Asia/Qatar':'QA','Asia/Dubai':'AE','Asia/Riyadh':'SA','Asia/Kuwait':'KW','Asia/Bahrain':'BH','Asia/Muscat':'OM','Africa/Tunis':'TN','Africa/Cairo':'EG'};let z='';try{z=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(e){}return m[z]||'QA'}
@@ -513,16 +554,19 @@ let t='b',iv;if(!matchMedia('(prefers-reduced-motion: reduce)').matches){iv=setI
 bs.forEach(b=>b.onclick=()=>{clearInterval(iv);set(b.dataset.t)})})();
 (function(){const CL=[["Mall of Sfax","logo-mall.png"],["Foire Internationale de Sfax","logo-foire.png"],["Growth Zone","logo-growth.png"]];/* add clients: ["Name","file.png"] */
 const esc=t=>t.replace(/"/g,'&quot;');
-const tile=c=>'<div class="lg"><img alt="'+esc(c[0])+'" loading="lazy" src="'+c[1]+'" onerror="this.removeAttribute(\'src\')"><span>'+c[0]+'</span></div>';
+const tile=c=>'<figure class="lg"><div class="im"><img alt="'+esc(c[0])+'" loading="lazy" src="'+c[1]+'" onerror="this.removeAttribute(\'src\')"><span>'+c[0]+'</span></div><figcaption>'+c[0]+'</figcaption></figure>';
 function build(){const b=document.getElementById('ww');if(!b)return;clearInterval(window._csI);
 b.className='cs-wrap';
-b.innerHTML='<button type="button" class="cs-b prev" aria-label="Previous">‹</button><div class="cs" tabindex="0" aria-label="Clients"><div class="lg more"><b>20+</b><span>'+(document.documentElement.lang==='ar'?'عميل':'clients')+'</span></div>'+CL.map(tile).join('')+'</div><button type="button" class="cs-b next" aria-label="Next">›</button>';
-const cs=b.querySelector('.cs');let paused=false,idle;
+b.innerHTML='<div class="cs" tabindex="0" aria-label="Clients">'+CL.map(tile).join('')+'</div>';
+const cs=b.querySelector('.cs'),bar=document.querySelector('.prog i');let paused=false,idle;
 const stop=()=>{paused=true;clearTimeout(idle)},go=()=>{clearTimeout(idle);idle=setTimeout(()=>{paused=false},2500)};
 ['pointerdown','touchstart','wheel','mouseenter','focusin'].forEach(e=>cs.addEventListener(e,stop,{passive:true}));
 ['pointerup','touchend','mouseleave','focusout'].forEach(e=>cs.addEventListener(e,go,{passive:true}));
-b.querySelector('.prev').onclick=()=>{stop();cs.scrollBy({left:-cs.clientWidth*.8,behavior:'smooth'});go()};
-b.querySelector('.next').onclick=()=>{stop();cs.scrollBy({left:cs.clientWidth*.8,behavior:'smooth'});go()};
+const P=document.getElementById('csP'),N=document.getElementById('csN');
+if(P)P.onclick=()=>{stop();cs.scrollBy({left:-cs.clientWidth*.8,behavior:'smooth'});go()};
+if(N)N.onclick=()=>{stop();cs.scrollBy({left:cs.clientWidth*.8,behavior:'smooth'});go()};
+const up=()=>{if(!bar)return;const sw=cs.scrollWidth||1;bar.style.width=Math.min(100,cs.clientWidth/sw*100)+'%';bar.style.marginInlineStart=(cs.scrollLeft/sw*100)+'%'};
+cs.addEventListener('scroll',up,{passive:true});up();
 if(!matchMedia('(prefers-reduced-motion: reduce)').matches){window._csI=setInterval(()=>{if(paused||document.hidden)return;if(cs.scrollLeft+cs.clientWidth>=cs.scrollWidth-2){paused=true;setTimeout(()=>{cs.scrollTo({left:0,behavior:'smooth'});setTimeout(()=>{paused=false},1400)},1200);return}cs.scrollLeft+=1},28)}}
 build();document.getElementById('lang').addEventListener('click',()=>setTimeout(build,0));
 const v=document.getElementById('vid');if(!v)return;const mv=v.closest('.mv');let manual=false;
