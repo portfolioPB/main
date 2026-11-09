@@ -552,9 +552,10 @@ document.getElementById('theme').onclick=()=>{const r=document.documentElement,n
 function set(t){bs.forEach(b=>b.setAttribute('aria-selected',b.dataset.t===t));pb.hidden=t!=='b';pa.hidden=t!=='a'}
 let t='b',iv;if(!matchMedia('(prefers-reduced-motion: reduce)').matches){iv=setInterval(()=>{t=t==='b'?'a':'b';set(t)},3600)}
 bs.forEach(b=>b.onclick=()=>{clearInterval(iv);set(b.dataset.t)})})();
-(function(){const CL=[["Mall of Sfax","logo-mall.png"],["Foire Internationale de Sfax","logo-foire.png"],["Growth Zone","logo-growth.png"]];/* add clients: ["Name","file.png"] */
+(function(){let CL=[["Mall of Sfax","logo-mall.png"],["Foire Internationale de Sfax","logo-foire.png"],["Growth Zone","logo-growth.png"]];/* fallback if no client1.png files are found */
+const NAMES={};/* optional captions, e.g. NAMES[1]="Mall of Sfax"; NAMES[2]="Growth Zone" */
 const esc=t=>t.replace(/"/g,'&quot;');
-const tile=c=>'<figure class="lg"><div class="im"><img alt="'+esc(c[0])+'" loading="lazy" src="'+c[1]+'" onerror="this.removeAttribute(\'src\')"><span>'+c[0]+'</span></div><figcaption>'+c[0]+'</figcaption></figure>';
+const tile=c=>'<figure class="lg"><div class="im"><img alt="'+esc(c[0]||'Client')+'" loading="lazy" src="'+c[1]+'" onerror="this.removeAttribute(\'src\')"><span>'+c[0]+'</span></div>'+(c[0]?'<figcaption>'+c[0]+'</figcaption>':'')+'</figure>';
 function build(){const b=document.getElementById('ww');if(!b)return;clearInterval(window._csI);
 b.className='cs-wrap';
 b.innerHTML='<div class="cs" tabindex="0" aria-label="Clients">'+CL.map(tile).join('')+'</div>';
@@ -568,7 +569,10 @@ if(N)N.onclick=()=>{stop();cs.scrollBy({left:cs.clientWidth*.8,behavior:'smooth'
 const up=()=>{if(!bar)return;const sw=cs.scrollWidth||1;bar.style.width=Math.min(100,cs.clientWidth/sw*100)+'%';bar.style.marginInlineStart=(cs.scrollLeft/sw*100)+'%'};
 cs.addEventListener('scroll',up,{passive:true});up();
 if(!matchMedia('(prefers-reduced-motion: reduce)').matches){window._csI=setInterval(()=>{if(paused||document.hidden)return;if(cs.scrollLeft+cs.clientWidth>=cs.scrollWidth-2){paused=true;setTimeout(()=>{cs.scrollTo({left:0,behavior:'smooth'});setTimeout(()=>{paused=false},1400)},1200);return}cs.scrollLeft+=1},28)}}
-build();document.getElementById('lang').addEventListener('click',()=>setTimeout(build,0));
+const EXT=['png','jpg','jpeg','webp','svg'];let last=0;
+const probe=i=>new Promise(res=>{const order=[...EXT.slice(last),...EXT.slice(0,last)];let k=0;const nx=()=>{if(k>=order.length)return res(null);const e=order[k++],src='client'+i+'.'+e,im=new Image();im.onload=()=>{last=EXT.indexOf(e);res([NAMES[i]||'',src])};im.onerror=nx;im.src=src};nx()});
+async function detect(){const out=[];for(let st=1;st<=80;st+=12){const r=await Promise.all(Array.from({length:12},(_,k)=>probe(st+k)));out.push(...r.filter(Boolean));if(!r.slice(-3).some(Boolean))break}if(out.length)CL=out;build()}
+detect();document.getElementById('lang').addEventListener('click',()=>setTimeout(build,0));
 const v=document.getElementById('vid');if(!v)return;const mv=v.closest('.mv');let manual=false;
 if(/debug/.test(location.search+location.hash)){const d=document.createElement('pre');d.style.cssText='position:fixed;z-index:99;left:8px;right:8px;bottom:8px;max-height:45vh;overflow:auto;margin:0;padding:12px;border-radius:12px;background:#000c;color:#9f9;font:12px/1.4 monospace;white-space:pre-wrap';document.body.append(d);
 const L=t=>{d.textContent+=t+'\n'};L('H.264 mp4 supported: '+(v.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"')||'NO'));
